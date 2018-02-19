@@ -1,0 +1,7 @@
+lib/node_modules
+lib/.sass-cache
+.DS_Store
+.vscode/
+css/styles.css
+css/styles.css.map
+dist/app.js
