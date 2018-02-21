@@ -39,3 +39,16 @@ Unitainment is having a problem with long lines at the more popular rides and ex
 1. Each group's presentation should be no more than seven minutes (plan and practice so you are ready to go). 
 1. Your presentation must include: challenge statement, persona, demo of your application, lessons learned about development & design.
 1. Each group member must participate in the presentation.
+
+
+## SETUP
+
+npm install browserify --save-dev
+npm install grunt-browserify --save-dev
+npm install grunt --save-dev
+npm install jshint --save-dev
+npm install grunt-contrib-jshint --save-dev
+npm install jshint-stylish --save-dev
+npm install grunt-eslint --save-dev
+npm install grunt-contrib-watch --save-dev
+npm install grunt-contrib-sass --save-dev
