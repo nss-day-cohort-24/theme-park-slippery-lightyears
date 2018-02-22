@@ -2,6 +2,8 @@
 
 
 
-let try1 = require("./fetch");
+let test1 = require("./match-obj");
 
-try1.callAPI.getInfo();
+let test2 = new test1.ParkHandler();
+
+test2.compareID(4);
