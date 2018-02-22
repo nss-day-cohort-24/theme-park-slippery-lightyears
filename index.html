@@ -28,9 +28,9 @@
 
                     <!-- *** Right time dropdown menu in nav  ***  -->
                     <div class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <button class="btn btn-secondary btn-sm dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             Select Event Time
-                        </a>
+                        </button>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                             <a class="dropdown-item" href="#">9 a.m.</a>
                             <a class="dropdown-item" href="#">10 a.m.</a>
@@ -57,9 +57,23 @@
     </header>
 
     <main class="C-main-wrapper">
-            <section class="container left-output-area" style="width: 30%" > <!--Left section that is 30% in width and will display area events and list of venues and details in that search criteria -->
+        
+        <section class="left-output-area" > 
+                <h3 class="display-font">The sweetest of adventures await at UniCone Land </h3><!--Left section that is 30% in width and will display area events and list of venues and details in that search criteria -->
             <article class="display-realtime" id="display-realtime-events">
-                <h4 id="display-font">Hi</h4>
+                    <div class="list-group">
+                            <a href="#" class="list-group-item list-group-item-action active">
+                              Cras justo odio
+                            </a>
+                            <a href="#" class="list-group-item list-group-item-action">Dapibus ac facilisis in</a>
+                            <a href="#" class="list-group-item list-group-item-action">Morbi leo risus</a>
+                            <a href="#" class="list-group-item list-group-item-action">Porta ac consectetur ac</a>
+                            <a href="#" class="list-group-item list-group-item-action disabled">Vestibulum at eros</a>
+                            <a href="#" class="list-group-item list-group-item-action">Dapibus ac facilisis in</a>
+                            <a href="#" class="list-group-item list-group-item-action">Morbi leo risus</a>
+                            <a href="#" class="list-group-item list-group-item-action">Porta ac consectetur ac</a>
+                            <a href="#" class="list-group-item list-group-item-action disabled">Vestibulum at eros</a>
+                          </div>
             <!-- This area is for live-up-to-date list of events that is happens when the page is refresh. It is connected with the current time user is the app. -->
             </article>
 
@@ -70,24 +84,24 @@
 
         </section>
 
-        <section class="container park-map-area"> <!-- Park map for grid of 8 areas. each area becomes a hyperlink on mouse roll over. On click will display the park area events and venue details on left-output article -->
+        <section class="park-map-area"> <!-- Park map for grid of 8 areas. each area becomes a hyperlink on mouse roll over. On click will display the park area events and venue details on left-output article -->
                 <div class="container" id="park-map-grid">
                     <div class="row">
-                        <div class="col">area 1</div>
-                        <div class="col">area 2</div>
-                        <div class="col">area 3</div>
+                        <div class="col" id="map-area-1"><a href="#" onclick="map-event">area 1</a></div>
+                        <div class="col" id="map-area-2"><a href="#" onclick="map-event">area 2</a></div>
+                        <div class="col" id="map-area-3"><a href="#" onclick="map-event">area 3</a></div>
 
                         <div class="w-100"></div>
 
-                        <div class="col">area 4</div>
-                        <div class="col">middle area</div>
-                        <div class="col">area 5</div>
+                        <div class="col" id="map-area-4"><a href="#" onclick="map-event">area 4</a></div>
+                        <div class="col" id="map-area-5"><a href="#" onclick="map-event">area 5</a></div>
+                        <div class="col" id="map-area-6"><a href="#" onclick="map-event">area 6</a></div>
 
                         <div class="w-100"></div>
 
-                        <div class="col">area 6</div>
-                        <div class="col">area 7</div>
-                        <div class="col">area 8</div>
+                        <div class="col" id="map-area-7"><a href="#" onclick="map-event">area 7</a></div>
+                        <div class="col" id="map-area-8"><a href="#" onclick="map-event">area 8</a></div>
+                        <div class="col" id="map-area-9"><a href="#" onclick="map-event">area 8</a></div>
                     </div>
                 </div>
         </section>
