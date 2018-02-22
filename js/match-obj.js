@@ -10,7 +10,7 @@ let attractionsarr = [], attraction_typesarr = [], areasarr = [];
 function ParkHandler (resolve) {
     this.parkInfo = {
 
-        // Here, I'm setting the local arrays to the properties of ParkHandler.
+        // Here we are setting the local arrays to the properties of ParkHandler.
 
         areas : areasarr[id],
         attractions: attractionsarr[id],
@@ -35,11 +35,15 @@ ParkHandler.prototype.setObjects = function (objectofResolve){
     attractionsarr = objectofResolve.attractions;
 
 };
+
+
+
 // Here is a method of compareID, which when called in the Promise, compares the input to the ID properties of each array.
 ParkHandler.prototype.compareID = function(ID1){
     
-    let passArea = {}, passAttraction_types = {} , passAttraction = {};
+    let passArea = {}, passAttraction_types = {} , passAttraction = [{}];
     
+    //Match the areas id to the input parameter ID.
     areasarr.forEach(function(item){ // For each item of areasarr...
         
         if (ID1 === item.id){ // make a comparison between ID1 and the item at the given iteration.
@@ -48,19 +52,21 @@ ParkHandler.prototype.compareID = function(ID1){
         }
     });
 
+    //Match the attraction types id to the input parameter ID.
     attraction_typesarr.forEach(function(item){ // make a comparison between ID1 and the item at the given iteration.
         
-        if (ID1 === item.id){
+        if (ID1 === item.type_id){
             console.log("Found a hit.");
             passAttraction_types = item;
         }
     });
 
+    //Match the attractions id to the input parameter ID.
     attractionsarr.forEach(function(item){ // make a comparison between ID1 and the item at the given iteration.
         
-        if (ID1 === item.id){
-            console.log("Found a hit.");
-            passAttraction = item;
+        if (ID1 === item.areas_id){
+            console.log("Found many hits.");
+            passAttraction.unshift(item);
     }
     });
 

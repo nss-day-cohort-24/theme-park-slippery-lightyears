@@ -10,7 +10,7 @@ callAPI.attraction_types = [];
 
 callAPI.setAllInfo = () => {
     
-    console.log("Running to set all park names...");
+    console.log("Fetching the parks data for all three arrays");
     
     // makes a request to get api data and is expecting an action 
     
