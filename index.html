@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Unicone Land Amusement Park</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- google fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Amatic+SC:700|Nunito" rel="stylesheet">
+    <!-- bootstrap css -->
+    <link rel="stylesheet" type="text/css" media="screen" 
+    href="lib/node_modules/bootstrap/dist/css/bootstrap.min.css" />
+   
+    <link rel="stylesheet" type="text/css" media="screen" href="styles/main.css" />
+    
+    
+</head>
+<body>
+  
+    <header class="nav-wrapper">
+            <nav class="navbar navbarlight justify-content-between" style="background-color: #f8c8d4";>
+                    <a class="navbar-brand">UniCone Land</a>
+                    <form class="form-inline">
+                      <input class="form-control my-2 mr-md-2" id="nav-search-bar" style="width: 500px" type="search" placeholder="Search" aria-label="Search">
+                      <!-- <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button> -->
+                    </form>
+
+
+                    <!-- *** Right time dropdown menu in nav  ***  -->
+                    <div class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Select Event Time
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" href="#">9 a.m.</a>
+                            <a class="dropdown-item" href="#">10 a.m.</a>
+                            <a class="dropdown-item" href="#">11 a.m.</a>
+                            <!-- <div class="dropdown-divider"></div> -->
+                            <a class="dropdown-item" href="#">12 noon</a>
+                            <a class="dropdown-item" href="#">1 p.m.</a>
+                            <a class="dropdown-item" href="#">2 p.m.</a>
+                            <a class="dropdown-item" href="#">3 p.m.</a>
+                            <a class="dropdown-item" href="#">4 p.m.</a>
+                            <a class="dropdown-item" href="#">5 p.m.</a>
+                            <a class="dropdown-item" href="#">6 p.m.</a>
+                            <a class="dropdown-item" href="#">7 p.m.</a>
+                            <a class="dropdown-item" href="#">8 p.m.</a>
+                            <a class="dropdown-item" href="#">9 p.m.</a>
+                            <a class="dropdown-item" href="#">10 p.m.</a>
+                        </div>
+                    </div>
+
+                </ul>
+                    
+            </div>
+        </nav>
+    </header>
+
+    <main class="C-main-wrapper">
+            <section class="container left-output-area" style="width: 30%" > <!--Left section that is 30% in width and will display area events and list of venues and details in that search criteria -->
+            <article class="display-realtime" id="display-realtime-events">
+                <h4 id="display-font">Hi</h4>
+            <!-- This area is for live-up-to-date list of events that is happens when the page is refresh. It is connected with the current time user is the app. -->
+            </article>
+
+            <article class="display-search" id="display-search-result">
+            <!-- This area is for search results list of events. It is connected with the current time user output request such as the nav search bar input request and the map grid areas -->
+            <h4>Hi</h4>
+            </article>
+
+        </section>
+
+        <section class="container park-map-area"> <!-- Park map for grid of 8 areas. each area becomes a hyperlink on mouse roll over. On click will display the park area events and venue details on left-output article -->
+                <div class="container" id="park-map-grid">
+                    <div class="row">
+                        <div class="col">area 1</div>
+                        <div class="col">area 2</div>
+                        <div class="col">area 3</div>
+
+                        <div class="w-100"></div>
+
+                        <div class="col">area 4</div>
+                        <div class="col">middle area</div>
+                        <div class="col">area 5</div>
+
+                        <div class="w-100"></div>
+
+                        <div class="col">area 6</div>
+                        <div class="col">area 7</div>
+                        <div class="col">area 8</div>
+                    </div>
+                </div>
+        </section>
+    </main>
+<footer>
+    <div class="fixed-bottom">Footer info here</div>
+
+</footer>
+
+
+
+<script src="js/main.js"></script>
+ <script src="lib/node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+
+
+</body>
+</html>

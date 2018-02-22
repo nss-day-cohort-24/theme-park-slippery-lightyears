@@ -1,0 +1,45 @@
+$font-family-sans-serif:'Nunito', sans-serif;
+$font-family-unique-display: 'Amatic SC';
+$color-area-1:#f27360;
+$color-area-2:#9aaaba;
+$color-area-3:#6e6f71;
+$color-area-4:#485868;
+$color-area-5:#f8c8d4;
+$color-area-6:#b096bc;
+$color-area-7:#9fc2bb;
+$color-area-8:#f5a46c;
+$color-extra:#f3c766;
+$color-white:#fdfcfc;
+
+body {
+    background-color: $color-area-4;
+    margin: 0;
+    padding: 0;
+}
+
+
+  .C-main-wrapper{
+      padding: 6em 4em;
+      height: 600px;
+  }
+
+  section {
+      display: flex;
+  }
+  section.container.left-output-area {
+    margin: 2em 2em;
+    padding: 2em 2em;
+    background-color: $color-area-2;
+    border: 2px solid $color-white;
+  }
+
+  section.park-map-area {
+    margin: 2em 2em;
+    padding: 2em 2em;
+    width: 60%;
+  }
+
+  #display-font {
+      font-family: $font-family-unique-display;
+
+  }
