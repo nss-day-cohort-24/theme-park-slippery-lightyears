@@ -37,7 +37,7 @@ section.left-output-area {
 .display-realtime {
   object-fit: contain; }
 
-section.park-map-area {
+section.park-map-grid {
   padding: 2em 2em 1em 2em;
   height: 80%;
   width: 65%;

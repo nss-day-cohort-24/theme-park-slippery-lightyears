@@ -60,8 +60,9 @@ section.left-output-area {
     object-fit: contain;
 }
 
-section.park-map-area {
+section.park-map-grid {
     // margin: 2em 3em 2em 6em;
+    
     padding: 2em 2em 1em 2em;
     height: 80%;
     width: 65%;
@@ -70,6 +71,14 @@ section.park-map-area {
     min-width: 40%;
     overflow-x: hidden;
 }
+
+// #park-map {
+//     background-image: url("images/UniConeland-map.png"); background-image: no-repeatx;
+//     width: 10px;
+//     height: auto;
+//     background-size: 300px 100px;
+//     object-fit: contain;
+// }
 
 div.col {
     width:200px;
