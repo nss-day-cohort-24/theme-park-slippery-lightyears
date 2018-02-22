@@ -1,9 +1,21 @@
 "use strict";
 
+let fetchobjects = require("./fetch");
+let matchobjects = require("./match-obj");
 
+let passID = 3;
 
-let test1 = require("./match-obj");
+// In the promise in setAllInfo(), do that operation, then make available the scoped objects (which is contained within the resolve variable, which is passed into setObjects.)
+fetchobjects.callAPI.setAllInfo().then(
+    (resolve) =>{
+        let localpark = new matchobjects.ParkHandler();
+        localpark.setObjects(resolve);
+        let testthis = localpark.compareID(passID);
+        console.log(testthis);
+    },
 
-let test2 = new test1.ParkHandler();
+    (reject) => {
 
-test2.compareID(4);
+    }
+);
+

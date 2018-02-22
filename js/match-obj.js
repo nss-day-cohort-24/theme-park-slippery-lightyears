@@ -4,62 +4,69 @@ let parkObjects = require ("./fetch.js");
 let id;
 let attractionsarr = [], attraction_typesarr = [], areasarr = [];
 
-parkObjects.callAPI.setAllInfo().then(
-
-    //put another promise here, and 
-    function(data){
-        
-        attractionsarr = parkObjects.callAPI.attractions;
-        attraction_typesarr = parkObjects.callAPI.attraction_types;
-        areasarr = parkObjects.callAPI.areas;
-        
-    }).catch(
-        function(data){
-            console.log("Big Fail.", parkObjects.callAPI);
-    
-        }
-
-);
 
 
-function ParkHandler (id) {
+
+function ParkHandler (resolve) {
     this.parkInfo = {
+
+        // Here, I'm setting the local arrays to the properties of ParkHandler.
+
         areas : areasarr[id],
         attractions: attractionsarr[id],
         attraction_types: attraction_typesarr[id] 
        };
-    console.log(parkObjects.callAPI);
+    
 }
-
+// Here is a constructor of ParkHandler, in that ParkHandler is being defined as an Object.
 ParkHandler.prototype.constructor = ParkHandler;
 
+// Here is a method of sayName that, when called, will say the information of the park.
 ParkHandler.prototype.sayName = () => {
     console.log(this.parkInfo);
 
 };
 
-ParkHandler.prototype.compareID = function(id){
-    let passArea, passAttraction_types, passAttraction;
+// Here is a method of setObjects, which when called in the Promise, takes the argument of the promise scope, and assigns it to local objects.
+ParkHandler.prototype.setObjects = function (objectofResolve){
+
+    areasarr = objectofResolve.areas;
+    attraction_typesarr = objectofResolve.attraction_types;
+    attractionsarr = objectofResolve.attractions;
+
+};
+// Here is a method of compareID, which when called in the Promise, compares the input to the ID properties of each array.
+ParkHandler.prototype.compareID = function(ID1){
     
-    areasarr.forEach(function(item){
-        if (id === item.id){
+    let passArea = {}, passAttraction_types = {} , passAttraction = {};
+    
+    areasarr.forEach(function(item){ // For each item of areasarr...
+        
+        if (ID1 === item.id){ // make a comparison between ID1 and the item at the given iteration.
+            console.log("Found a hit.");
             passArea = item;
         }
     });
 
-    attraction_typesarr.forEach(function(item){
-        if (id === item.id){
+    attraction_typesarr.forEach(function(item){ // make a comparison between ID1 and the item at the given iteration.
+        
+        if (ID1 === item.id){
+            console.log("Found a hit.");
             passAttraction_types = item;
         }
     });
 
-    attractionsarr.forEach(function(item){
-        if (id === item.id){
-        passAttraction = item;
+    attractionsarr.forEach(function(item){ // make a comparison between ID1 and the item at the given iteration.
+        
+        if (ID1 === item.id){
+            console.log("Found a hit.");
+            passAttraction = item;
     }
     });
 
-    return {passArea, passAttraction, passAttraction_types};
+    return {passArea, passAttraction, passAttraction_types}; // every object obtained is now returned to the function call
+
+
 };
 
 
