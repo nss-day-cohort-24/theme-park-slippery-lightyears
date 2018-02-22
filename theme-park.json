@@ -11,8 +11,7 @@
                 }
             ]
         }
-    ],
-    "areas": [
+    ], "areas": [
         {
             "id": 1,
             "name": "Main Street U.S.A.",
@@ -55,8 +54,7 @@
             "description": "Rising high in the sky at the end of Main Street, U.S.A., Cinderella Castle welcomes you to a magical world of fantasy and fun. The central icon of Walt Disney World Resort, the castle invites all who visit to celebrate in a place where dreams come true.",
             "colorTheme": "F2CF53"
         }
-    ],
-"attractions": [
+    ], "attractions": [
         {
             "id": 1,
             "name": "Walt Disney World Railroad",
@@ -1001,8 +999,7 @@
             "type_id": 8,
             "area_id": 7
         }
-    ],
-"attraction_types":[
+    ], "attraction_types":[
         {
             "id": 1,
             "name": "ride"
