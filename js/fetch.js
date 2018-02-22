@@ -1,13 +1,19 @@
 "use strict";
 
 let callAPI = {};
-let infoDesk = "https://slippery-lightyears.firebaseio.com/areas.json";
-let attractions = [];
+let infoDesk = "https://slippery-lightyears.firebaseio.com/.json";
+let attractions = [], areas = [], attraction_types = [];
 
 
-var fillAttraction = (data) => {
-    data.attraction.forEach(function(element){
-      attractions.push(element);
+var fillObjects = (data) => {
+    data.attractions.forEach(function(element){
+        attractions.push(element);
+    });
+    data.areas.forEach(function(element){
+        areas.push(element);
+    });
+    data.attraction_types.forEach(function(element){
+        attraction_types.push(element);
     });
   };
 
@@ -21,12 +27,12 @@ callAPI.setAllInfo = () => {
     
     return new Promise((resolve, reject) =>{
         
-        let attractionsLoader = new XMLHttpRequest(); 
+        let parkObjectsLoader = new XMLHttpRequest(); 
 
-        attractionsLoader.open("GET", `${infoDesk}`);
-        attractionsLoader.send();
+        parkObjectsLoader.open("GET", `${infoDesk}`);
+        parkObjectsLoader.send();
 
-        attractionsLoader.addEventListener("load", function() {
+        parkObjectsLoader.addEventListener("load", function() {
             var data = JSON.parse(this.responseText);
             resolve(data);
 
@@ -36,7 +42,7 @@ callAPI.setAllInfo = () => {
 };
 
 callAPI.getInfo = () => {
-    return attractions;
+    return {attractions, attraction_types, areas};
 };
 
 
