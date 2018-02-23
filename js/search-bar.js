@@ -33,7 +33,7 @@ searchBar.addEventListener("keyup", function(e) {
                         
                         //Then, we need to get an area ${bucket[item].area_id}
                         
-                        document.getElementById(`map-area-${bucket[item].area_id}`).style
+                        //document.getElementById(`map-area-${bucket[item].area_id}`).style
 
 
                         console.log("Found it.");
