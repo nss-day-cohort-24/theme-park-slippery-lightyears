@@ -1,7 +1,7 @@
 {
     "park-info": [
         {
-            "name": "UniCone Land",
+            "name": "UniCone and",
             "description": "Magic Kingdom is Walt Disney World's most popular destination, and is first on everyone's list of things to experience when they arrive in Central Florida. The park is full of great attractions like Seven Dwarfs Mine Train, Space Mountain, and Jungle Cruise, and features lots of entertainment including parades, fireworks spectaculars, character meet and greets, and shows. However, the park can be overwhelming and become quite crowded, even during the low season.",
             "location": "Orlando, Florida",
             "operating_hours":[
@@ -1004,6 +1004,20 @@
             "times": ["9:45PM"],
             "type_id": 8,
             "area_id": 7
+        },
+        {
+            "id": 132,
+            "name": "The lawn",
+            "description": "The sweetest spot of the park to relax and find shade from the sun. Parents can enjoy a wide variety of refreshments and treats while you people watch. ",
+            "type_id": 3,
+            "area_id": 8
+        },
+        {
+            "id": 133,
+            "name": "Tavern on the lawn",
+            "description": "Enjoy the view of the lawn and fountains as you enjoy delicious buffet of food. ",
+            "type_id": 4,
+            "area_id": 8
         }
     ], "attraction_types":[
         {
