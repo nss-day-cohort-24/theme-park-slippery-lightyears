@@ -1,6 +1,8 @@
 "use strict";
 
 let parkObjects = require ("./fetch.js");
+
+/*
 let id;
 let attractionsarr = [], attraction_typesarr = [], areasarr = [];
 
@@ -88,14 +90,17 @@ ParkHandler.prototype.compareTime = function(userTime){
 };
 
 ParkHandler.prototype.searchBar = function(searchTerm){
-    let term = `/${searchTerm}/g`
+    let term = `/${searchTerm}/g`;
+    let returnlist = [{}];
     attractionsarr.forEach(function(item){
-        if()
-
-    })
-    
+        if(term.test(item.name)){
+            console.log("You are the father!");
+            returnlist.unshift(item);
+        }
+    });
 };
 
 
 
 module.exports = {ParkHandler};
+*/

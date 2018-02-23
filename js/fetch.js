@@ -1,68 +1,79 @@
 "use strict";
+let parkObjectsLoader;
 
-let callAPI = {};
-let infoDesk = "https://slippery-lightyears.firebaseio.com/.json";
-let attractionString = `https://slippery-lightyears.firebaseio.com/attractions.json?orderBy="id"&startAt=1`;
-callAPI.attractions = []; 
-callAPI.areas = [];
-callAPI.attraction_types = [];
+function getAllAreas() {
 
+    return new Promise((resolve, reject) =>{
+            
+        let attractionsObjectsLoader = new XMLHttpRequest(); 
+        
+        attractionsObjectsLoader.open("GET", `https://slippery-lightyears.firebaseio.com/.json`);
+        attractionsObjectsLoader.send();
+        
+        attractionsObjectsLoader.addEventListener("load", function() {
+            
+            var data;
+            resolve(data);
+            
+        });
+    });
+}
 
+function getAllAreasAttractions(areaNum){ // This returns all the areas by id for the side pane
 
-callAPI.setAllInfo = () => {
-    
-    console.log("Fetching the parks data for all three arrays");
-    
-    // makes a request to get api data and is expecting an action 
-    
-    
     return new Promise((resolve, reject) =>{
         
-        let parkObjectsLoader = new XMLHttpRequest(); 
+        this.parkObjectsLoader = new XMLHttpRequest(); 
         
-        parkObjectsLoader.open("GET", `${infoDesk}`);
+        parkObjectsLoader.open("GET", `https://slippery-lightyears.firebaseio.com/attractions.json?orderBy="area_id"&equalTo=${areaNum}`);
         parkObjectsLoader.send();
         
         parkObjectsLoader.addEventListener("load", function() {
-            var data = JSON.parse(this.responseText);
-            data.attractions.forEach(function(element){
-                callAPI.attractions.push(element);
-            });
-            data.areas.forEach(function(element){
-                callAPI.areas.push(element);
-            });
-            data.attraction_types.forEach(function(element){
-                callAPI.attraction_types.push(element);
-            });
-         
+            
+            var data;
+            resolve(data);
+            
+        });
+});
+}
+
+function getAllAttractionTypes(AttractionTypeNum){ // This returns all attractions by areanum
+
+
+
+    return new Promise((resolve, reject) =>{
+        
+        this.parkObjectsLoader = new XMLHttpRequest(); 
+        
+        parkObjectsLoader.open("GET", `https://slippery-lightyears.firebaseio.com/attractions.json?orderBy="area_id"&equalTo=${AttractionTypeNum}`);
+        parkObjectsLoader.send();
+        
+        parkObjectsLoader.addEventListener("load", function() {
+            
+            var data;
+            resolve(data);
+            
+        });
+    });
+}
+
+function getAllAttractions(attractions){ 
+
+    return new Promise((resolve, reject) =>{
+        
+        this.parkObjectsLoader = new XMLHttpRequest(); 
+        
+        parkObjectsLoader.open("GET", `https://slippery-lightyears.firebaseio.com/attractions.json?orderBy="area_id"&equalTo=${attractions}`);
+        parkObjectsLoader.send();
+        
+        parkObjectsLoader.addEventListener("load", function() {
+            
+            var data;
             resolve(data);
             
         });
 
     });
-};
-
-callAPI.setAttractionObjects = () => {
-
-    return new Promise((resolve, reject) =>{
-        
-        let attractionsObjectsLoader = new XMLHttpRequest(); 
-        
-        attractionsObjectsLoader.open("GET", `${attractionString}`);
-        attractionsObjectsLoader.send();
-        
-        attractionsObjectsLoader.addEventListener("load", function() {
-            var data = JSON.parse(this.responseText);
-            data.attractions.forEach(function(element){
-                callAPI.attractions.push(element);
-            });
-         
-            resolve(data);
-            
-        });
-
-
 }
 
-
-module.exports = {callAPI}; 
+module.exports = {getAllAreas, getAllAreasAttractions, getAllAttractionTypes, getAllAttractions}; 
