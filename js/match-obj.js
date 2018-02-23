@@ -76,9 +76,25 @@ ParkHandler.prototype.compareID = function(ID1){
 };
 
 
+ParkHandler.prototype.compareTime = function(userTime){
+
+    attractionsarr.forEach(function(item) {
+        if (item.time === userTime){
+            return item;
+        }
 
 
+    });
+};
 
+ParkHandler.prototype.searchBar = function(searchTerm){
+    let term = `/${searchTerm}/g`
+    attractionsarr.forEach(function(item){
+        if()
+
+    })
+    
+};
 
 
 
