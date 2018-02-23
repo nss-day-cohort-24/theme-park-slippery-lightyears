@@ -4,7 +4,7 @@
     <head lang="en-us">
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title>Unicone Land Amusement Park</title>
+        <title>UniCone Land Amusement Park</title>
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <!-- google fonts -->
         <link href="https://fonts.googleapis.com/css?family=Amatic+SC:700|Nunito" rel="stylesheet">
@@ -42,7 +42,7 @@
         <main class="C-main-wrapper">
             
             <section class="left-output-area" > 
-                    <h3 class="display-font">The sweetest of adventures await at UniCone Land </h3><!--Left section that is 30% in width and will display area events and list of venues and details in that search criteria -->
+                    <h1 class="display-font">"Where the sweetest of adventures await"</h1><!--Left section that is 30% in width and will display area events and list of venues and details in that search criteria -->
                 <article class="display-realtime" id="display-realtime-events">
                     <ul>
                         <li>event 9:15 am</li>
@@ -59,19 +59,15 @@
                 <article class="display-search" id="display-search-result">
                 <!-- This area is for search results list of events. It is connected with the current time user output request such as the nav search bar input request and the map grid areas -->
                 <div class="list-group">
-                    <a href="#" class="list-group-item list-group-item-action active">
-                    Cras justo odio
-                    </a>
-                    <a href="#" class="list-group-item list-group-item-action">Dapibus ac facilisis in</a>
-                    <a href="#" class="list-group-item list-group-item-action">Morbi leo risus</a>
+                    
                 </div>
                 </article>
 
             </section>
 
             <section class="park-map-area"> <!-- Park map for grid of 8 areas. each area becomes a hyperlink on mouse roll over. On click will display the park area events and venue details on left-output article -->
-                <img src="images/UniConeland-map.png" alt="Map of UniConeland" style="object-fit: contain">
                 <div class="container" id="park-map-grid">
+                    <img src="images/UniConeland-map.png" alt="Map of UniConeland">
                     <div class="row">
                         <div class="col" id="map-area-1"><a href="#" onclick="map-event">area 1</a></div>
                         <div class="col" id="map-area-2"><a href="#" onclick="map-event">area 2</a></div>
@@ -86,19 +82,22 @@
                         <div class="w-100"></div>
 
                         <div class="col" id="map-area-7"><a href="#" onclick="map-event">area 7</a></div>
-                        <div class="col" id="map-area-8"><a href="#" onclick="map-event">area 8</a></div>
+                        <div class="col" id="map-area-8"><a href="#" onclick="map-event">area 7</a></div>
                         <div class="col" id="map-area-9"><a href="#" onclick="map-event">area 8</a></div>
                     </div>
                 </div>
             </section>
         </main>
-    <footer>
-        <div class="fixed-bottom">Footer info here</div>
-    </footer>
-        </section>
-    </main>
+  
 <footer>
-    <div class="fixed-bottom">Footer info here</div>
+    <div class="fixed-bottom">
+       <p class="display-font"> <span>UniCone Land:</span> "Where the sweetest of adventures await" </p>
+       <p></p>
+       <p><span>Location:</span> Orlando, Florida  |  
+       <span>Hours of Operation :</span> 9 a.m - 11 p.m.</p>
+                   
+        <div id="footer-date"> </div>
+    </div>
 
 </footer>
 
