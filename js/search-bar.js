@@ -15,25 +15,37 @@ searchBar.addEventListener("keyup", function(e) {
     if (e.keyCode === 13) {
 
         let userInput = e.target.value.toLowerCase();
+        let bucket = [{}];
+    
+
         console.log(userInput);
-        
         fetchobjects.getAllAttractions().then(
             (resolve) =>{ // resolve is the array of stuff
+               
+                console.log("Finding comparisons.");
+                bucket = resolve;
                 
-                let term = `/${userInput}/g`;
-                let returnlist = [{}];
-                let attractionsarr = [{}];
-                attractionsarr = resolve;
-                console.log("you get at least here.")
-                attractionsarr.forEach(function(item){
-                    if(term.test(item.name)){
-                        console.log("You are the father!");
-                        returnlist.unshift(item);
+                let keys = Object.keys(bucket);
+                
+                keys.forEach(function(item){
+                    let input = (bucket[item].name).toLowerCase();
+                    if(input.includes(userInput)){
+                        
+                        //Then, we need to get an area ${bucket[item].area_id}
+                        
+                        document.getElementById(`map-area-${bucket[item].area_id}`).style
+
+
+                        console.log("Found it.");
+                        console.log(bucket[item].name);
                     }
-                    });
-                console.log("Fetched a bunch of stuff according to the search query.");
+
+                    else{
+                        console.log("Nothing");
+                    }
+
+                });
             },
-        
             (reject) => { // something failed.
                 console.log("Error in the searchbar.");
             }

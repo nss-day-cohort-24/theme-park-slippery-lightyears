@@ -1,6 +1,6 @@
 "use strict";
 let parkObjectsLoader;
-
+/*
 function getAllAreas() {
 
     return new Promise((resolve, reject) =>{
@@ -55,25 +55,28 @@ function getAllAttractionTypes(AttractionTypeNum){ // This returns all attractio
             
         });
     });
-}
 
-function getAllAttractions(attractions){ 
+
+}
+*/
+//THIS WORKS
+function getAllAttractions(){ 
 
     return new Promise((resolve, reject) =>{
         
-        this.parkObjectsLoader = new XMLHttpRequest(); 
+        let parkObjectsLoader = new XMLHttpRequest(); 
         
-        parkObjectsLoader.open("GET", `https://slippery-lightyears.firebaseio.com/attractions.json?orderBy="area_id"&equalTo=${attractions}`);
+        parkObjectsLoader.open("GET", 'https://slippery-lightyears.firebaseio.com/attractions.json?orderBy="name"');
         parkObjectsLoader.send();
         
         parkObjectsLoader.addEventListener("load", function() {
-            
-            var data;
+            var data = JSON.parse(this.responseText);
             resolve(data);
+            
             
         });
 
     });
 }
-
-module.exports = {getAllAreas, getAllAreasAttractions, getAllAttractionTypes, getAllAttractions}; 
+//getAllAreas, getAllAreasAttractions, getAllAttractionTypes,
+module.exports = {getAllAttractions}; 

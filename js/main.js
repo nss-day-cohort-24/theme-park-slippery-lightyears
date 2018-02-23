@@ -6,3 +6,4 @@ let searchOnEnter = require("./search-bar");
 
 
 
+searchOnEnter.search.captureInput();
