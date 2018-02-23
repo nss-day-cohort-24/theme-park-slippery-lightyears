@@ -17,16 +17,14 @@
 
     <body>
         <header class="nav-wrapper">
-            <nav class="navbar navbarlight justify-content-between" style="background-color: #f8c8d4";>
+            <nav class="navbar navbarlight fixed-top justify-content-between" style="background-color: #f8c8d4";>
                 <a class="navbar-brand">UniCone Land</a>
-                    <input class="form-control my-2 mr-md-2" id="nav-search-bar" style="width: 500px" type="search" placeholder="Search" aria-label="Search">
+                    <input class="form-control my-2 mr-md-2" id="nav-search-bar" style="width: 400px" type="search" placeholder="Search name of attraction" aria-label="Search">
                     <!-- <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button> -->
 
                 <!-- *** Right time dropdown menu in nav  ***  -->
                 <div class="nav-item dropdown">
-                    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                       Select event time
-                      </button>
+                    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Select event time </button>
 
                     <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                         <a class="dropdown-item" href="#">9 a.m.-11 a.m.</a>
@@ -42,7 +40,7 @@
         <main class="C-main-wrapper">
             
             <section class="left-output-area" > 
-                    <h1 class="display-font">"Where the sweetest of adventures await"</h1><!--Left section that is 30% in width and will display area events and list of venues and details in that search criteria -->
+                    <h1 class="display-font special-motto">"The sweetest of adventures await you at UniCone Land"</h1><!--Left section that is 30% in width and will display area events and list of venues and details in that search criteria -->
                 <article class="display-realtime" id="display-realtime-events">
                     <ul>
                         <li>event 9:15 am</li>
@@ -67,7 +65,7 @@
 
             <section class="park-map-area"> <!-- Park map for grid of 8 areas. each area becomes a hyperlink on mouse roll over. On click will display the park area events and venue details on left-output article -->
                 <div class="container" id="park-map-grid">
-                    <img src="images/UniConeland-map.png" alt="Map of UniConeland">
+                    <!-- <img src="images/UniConeland-map.png" alt="Map of UniConeland"> -->
                     <div class="row">
                         <div class="col" id="map-area-1"><a href="#" onclick="map-event">area 1</a></div>
                         <div class="col" id="map-area-2"><a href="#" onclick="map-event">area 2</a></div>
@@ -87,21 +85,18 @@
                     </div>
                 </div>
             </section>
-        </main>
+        
   
-<footer>
-    <div class="fixed-bottom">
-       <p class="display-font"> <span>UniCone Land:</span> "Where the sweetest of adventures await" </p>
-       <p></p>
-       <p><span>Location:</span> Orlando, Florida  |  
-       <span>Hours of Operation :</span> 9 a.m - 11 p.m.</p>
-                   
-        <div id="footer-date"> </div>
-    </div>
+        <footer>
+            <div class="fixed-bottom">
+                <p class="uppercase">UniCone Land: "Where the sweetest of adventures await"</span> &emsp; | &emsp; <b>Location:</b> Orlando, Florida &emsp;|&emsp; <b>Hours of Operation :</b> 9 a.m - 11 p.m.</p>
+                    
+            <div id="footer-date"> Today's date:</div>
+            </div>
 
-</footer>
+        </footer>
 
-
+</main>
 
 
 <script src="lib/node_modules/bootstrap/dist/js/bootstrap.min.js"></script>

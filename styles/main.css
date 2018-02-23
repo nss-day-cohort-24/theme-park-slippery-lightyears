@@ -1,3 +1,4 @@
+/***** Main element styles  ********/
 html,
 body {
   margin: 0;
@@ -11,63 +12,6 @@ body {
   background: #f8c8d4;
   background: radial-gradient(circle, #fdfcfc, #fdfcfc, #f8c8d4); }
 
-.navbar {
-  padding-left: 3em;
-  padding-right: 3em; }
-
-.navbar-brand {
-  font-family: "Amatic SC";
-  font-size: 48px; }
-
-.C-main-wrapper {
-  padding: 1em 2em;
-  height: auto; }
-
-section.left-output-area {
-  margin: 2em 1em 2em 3em;
-  padding: 2em 2em;
-  background-color: #fdfcfc;
-  border: 1px solid #9aaaba;
-  border-radius: 1em;
-  width: 30%;
-  height: 75%;
-  position: fixed;
-  z-index: 1;
-  float: right; }
-
-.display-realtime {
-  object-fit: contain; }
-
-section.park-map-area {
-  padding: 2em 2em 1em 2em;
-  position: fixed;
-  right: 0;
-  min-width: 40%;
-  overflow-x: hidden;
-  position: fixed;
-  width: 60%;
-  height: 75%;
-  z-index: 0;
-  display: inline-flex; }
-
-#park-map {
-  background-image: no-repeat fixed center;
-  background-size: 300px 100px;
-  object-fit: contain; }
-
-div.col {
-  width: 200px;
-  height: 180px;
-  text-align: center;
-  z-index: 100;
-  position: absolute; }
-
-div.col-sm-9 {
-  max-height: 1em; }
-
-.display-font {
-  font-family: "Amatic SC"; }
-
 ul,
 li {
   padding: 0;
@@ -75,15 +19,87 @@ li {
   font-size: 12px;
   line-height: 1em; }
 
-footer p {
-  text-align: right;
+/***** Text element styles ********/
+.display-font {
+  font-family: "Amatic SC"; }
+
+h1.special-motto {
+  font-size: 1.2em;
+  line-height: 1em;
+  color: #9fc2bb; }
+
+/***** Navbar fixed top area  ********/
+.navbar {
+  padding: 1em 3em 1em 3em !important; }
+
+.navbar-brand {
+  font-family: "Amatic SC";
+  font-size: 48px; }
+
+/***** Main content area  ********/
+.C-main-wrapper {
+  padding: 5em 1em 1em 1em;
+  height: 100%; }
+
+/***** Left output area ********/
+section.left-output-area {
+  margin: 2em 1em 2em 3em;
+  padding: 2em 2em;
+  background-color: #fdfcfc;
+  border: 1px solid #9aaaba;
+  border-radius: 1em;
+  width: 30%;
+  height: 70%;
+  position: fixed;
+  z-index: 1;
+  float: right;
+  overflow-x: hidden; }
+
+/*** styling for events dropdown menu on time of events *****/
+/*** styling for output content *****/
+/***** RIght map area ********/
+section.park-map-area {
+  margin: 2em 1em 2em 3em;
+  object-fit: contain;
+  padding: 2em 2em 1em 2em;
+  position: fixed;
+  right: 0;
+  overflow-x: hidden;
+  position: fixed;
+  width: 60%;
+  height: 70%;
+  z-index: 0;
+  display: inline-flex; }
+
+#park-map {
+  background-image: url "images/UniConeland-map.png" no-repeat fixed center;
+  background-size: 300px 100px;
+  width: 800px;
+  object-fit: contain; }
+
+div.col {
+  width: 200px;
+  height: 120px;
+  text-align: center;
+  align-items: center;
+  z-index: 100; }
+
+div.col-sm-9 {
+  max-height: 1em; }
+
+/***** I live here in the footer bottom area *****/
+footer {
+  text-align: center;
   font-size: .5em;
   line-height: .5em; }
 
-p span {
+.fixed-bottom {
+  padding-bottom: 2em !important; }
+
+p.uppercase {
   font-weight: bolder; }
 
 footer p.display-font {
-  font-size: 1.25em; }
+  font-size: 1em; }
 
 /*# sourceMappingURL=main.css.map */
