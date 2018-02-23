@@ -1,9 +1,8 @@
 html,
-body,
-ul,
-ol {
+body {
   margin: 0;
-  padding: 0; }
+  padding: 0;
+  height: 100%; }
 
 body {
   font-family: "Nunito", sans-serif;
@@ -21,7 +20,8 @@ body {
   font-size: 48px; }
 
 .C-main-wrapper {
-  padding: 1em 2em; }
+  padding: 1em 2em;
+  height: auto; }
 
 section.left-output-area {
   margin: 2em 1em 2em 3em;
@@ -33,29 +33,57 @@ section.left-output-area {
   height: 75%;
   position: fixed;
   z-index: 1;
-  display: block;
-  left: 0; }
+  float: right; }
 
 .display-realtime {
   object-fit: contain; }
 
 section.park-map-area {
   padding: 2em 2em 1em 2em;
-  height: 80%;
-  width: 65%;
   position: fixed;
   right: 0;
   min-width: 40%;
-  overflow-x: hidden; }
+  overflow-x: hidden;
+  position: fixed;
+  width: 60%;
+  height: 75%;
+  z-index: 0;
+  display: inline-flex; }
+
+#park-map {
+  background-image: no-repeat fixed center;
+  background-size: 300px 100px;
+  object-fit: contain; }
 
 div.col {
   width: 200px;
-  height: 180px; }
+  height: 180px;
+  text-align: center;
+  z-index: 100;
+  position: absolute; }
 
 div.col-sm-9 {
   max-height: 1em; }
 
 .display-font {
   font-family: "Amatic SC"; }
+
+ul,
+li {
+  padding: 0;
+  margin: .75em;
+  font-size: 12px;
+  line-height: 1em; }
+
+footer p {
+  text-align: right;
+  font-size: .5em;
+  line-height: .5em; }
+
+p span {
+  font-weight: bolder; }
+
+footer p.display-font {
+  font-size: 1.25em; }
 
 /*# sourceMappingURL=main.css.map */

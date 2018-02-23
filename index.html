@@ -4,7 +4,7 @@
     <head lang="en-us">
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title>Unicone Land Amusement Park</title>
+        <title>UniCone Land Amusement Park</title>
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <!-- google fonts -->
         <link href="https://fonts.googleapis.com/css?family=Amatic+SC:700|Nunito" rel="stylesheet">
@@ -24,26 +24,16 @@
 
                 <!-- *** Right time dropdown menu in nav  ***  -->
                 <div class="nav-item dropdown">
-                    <button class="btn btn-secondary btn-sm dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        Select Event Time
-                    </button>
+                    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                       Select event time
+                      </button>
 
-                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="#">9 a.m.</a>
-                        <a class="dropdown-item" href="#">10 a.m.</a>
-                        <a class="dropdown-item" href="#">11 a.m.</a>
-                        <!-- <div class="dropdown-divider"></div> -->
-                        <a class="dropdown-item" href="#">12 noon</a>
-                        <a class="dropdown-item" href="#">1 p.m.</a>
-                        <a class="dropdown-item" href="#">2 p.m.</a>
-                        <a class="dropdown-item" href="#">3 p.m.</a>
-                        <a class="dropdown-item" href="#">4 p.m.</a>
-                        <a class="dropdown-item" href="#">5 p.m.</a>
-                        <a class="dropdown-item" href="#">6 p.m.</a>
-                        <a class="dropdown-item" href="#">7 p.m.</a>
-                        <a class="dropdown-item" href="#">8 p.m.</a>
-                        <a class="dropdown-item" href="#">9 p.m.</a>
-                        <a class="dropdown-item" href="#">10 p.m.</a>
+                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                        <a class="dropdown-item" href="#">9 a.m.-11 a.m.</a>
+                        <a class="dropdown-item" href="#">12 noon-2 p.m.</a>
+                        <a class="dropdown-item" href="#">3 p.m.-5 p.m.</a>
+                        <a class="dropdown-item" href="#">6 p.m.-8 p.m.</a>
+                        <a class="dropdown-item" href="#">9 p.m.-11 p.m.</a>
                     </div>
                 </div>
             </nav>
@@ -52,33 +42,32 @@
         <main class="C-main-wrapper">
             
             <section class="left-output-area" > 
-                    <h3 class="display-font">The sweetest of adventures await at UniCone Land </h3><!--Left section that is 30% in width and will display area events and list of venues and details in that search criteria -->
+                    <h1 class="display-font">"Where the sweetest of adventures await"</h1><!--Left section that is 30% in width and will display area events and list of venues and details in that search criteria -->
                 <article class="display-realtime" id="display-realtime-events">
-                        <div class="list-group">
-                            <a href="#" class="list-group-item list-group-item-action active">
-                            Cras justo odio
-                            </a>
-                            <a href="#" class="list-group-item list-group-item-action">Dapibus ac facilisis in</a>
-                            <a href="#" class="list-group-item list-group-item-action">Morbi leo risus</a>
-                            <a href="#" class="list-group-item list-group-item-action">Porta ac consectetur ac</a>
-                            <a href="#" class="list-group-item list-group-item-action disabled">Vestibulum at eros</a>
-                            <a href="#" class="list-group-item list-group-item-action">Dapibus ac facilisis in</a>
-                            <a href="#" class="list-group-item list-group-item-action">Morbi leo risus</a>
-                            <a href="#" class="list-group-item list-group-item-action">Porta ac consectetur ac</a>
-                            <a href="#" class="list-group-item list-group-item-action disabled">Vestibulum at eros</a>
-                        </div>
+                    <ul>
+                        <li>event 9:15 am</li>
+                        <li>event 9:30 am</li>
+                        <li>event 10:30 am</li>
+                        <li>event 11 am</li>
+                        <li>event 11:30 am</li>
+                        <li>event 11:45 am</li>
+                    </ul>
+                       
                 <!-- This area is for live-up-to-date list of events that is happens when the page is refresh. It is connected with the current time user is the app. -->
                 </article>
 
                 <article class="display-search" id="display-search-result">
                 <!-- This area is for search results list of events. It is connected with the current time user output request such as the nav search bar input request and the map grid areas -->
-                <h4>Hi</h4>
+                <div class="list-group">
+                    
+                </div>
                 </article>
 
             </section>
 
             <section class="park-map-area"> <!-- Park map for grid of 8 areas. each area becomes a hyperlink on mouse roll over. On click will display the park area events and venue details on left-output article -->
                 <div class="container" id="park-map-grid">
+                    <img src="images/UniConeland-map.png" alt="Map of UniConeland">
                     <div class="row">
                         <div class="col" id="map-area-1"><a href="#" onclick="map-event">area 1</a></div>
                         <div class="col" id="map-area-2"><a href="#" onclick="map-event">area 2</a></div>
@@ -93,19 +82,22 @@
                         <div class="w-100"></div>
 
                         <div class="col" id="map-area-7"><a href="#" onclick="map-event">area 7</a></div>
-                        <div class="col" id="map-area-8"><a href="#" onclick="map-event">area 8</a></div>
+                        <div class="col" id="map-area-8"><a href="#" onclick="map-event">area 7</a></div>
                         <div class="col" id="map-area-9"><a href="#" onclick="map-event">area 8</a></div>
                     </div>
                 </div>
             </section>
         </main>
-    <footer>
-        <div class="fixed-bottom">Footer info here</div>
-    </footer>
-        </section>
-    </main>
+  
 <footer>
-    <div class="fixed-bottom">Footer info here</div>
+    <div class="fixed-bottom">
+       <p class="display-font"> <span>UniCone Land:</span> "Where the sweetest of adventures await" </p>
+       <p></p>
+       <p><span>Location:</span> Orlando, Florida  |  
+       <span>Hours of Operation :</span> 9 a.m - 11 p.m.</p>
+                   
+        <div id="footer-date"> </div>
+    </div>
 
 </footer>
 
