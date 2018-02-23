@@ -2,21 +2,20 @@ $font-family-sans-serif:'Nunito', sans-serif;
 $font-family-unique-display: 'Amatic SC';
 $color-area-1:#f27360;
 $color-area-2:#9aaaba;
-$color-area-3:#6e6f71;
+$color-area-3:#f3c766;
 $color-area-4:#485868;
 $color-area-5:#f8c8d4;
 $color-area-6:#b096bc;
-$color-area-7:#9fc2bb;
-$color-area-8:#f5a46c;
-$color-extra:#f3c766;
+$color-area-7:#f5a46c;
+$color-area-8:#9fc2bb;
+$color-gray:#6e6f71;
 $color-white:#fdfcfc;
 
 html,
-body,
-ul,
-ol {
+body {
     margin: 0;
     padding: 0;
+    height: 100%;
 }
 
 body {
@@ -39,7 +38,7 @@ body {
 
 .C-main-wrapper{
       padding: 1em 2em;
-    //   height: 100%;
+      height: auto;
 }
 
 section.left-output-area {
@@ -53,8 +52,7 @@ section.left-output-area {
     height: 75%;
     position: fixed;
     z-index: 1;
-    display: block;
-    left: 0;
+    float: right;
     // overflow-x: hidden;
 }
 
@@ -65,17 +63,30 @@ section.left-output-area {
 section.park-map-area {
     // margin: 2em 3em 2em 6em;
     padding: 2em 2em 1em 2em;
-    height: 80%;
-    width: 65%;
     position: fixed;
     right: 0;
     min-width: 40%;
     overflow-x: hidden;
+    position: fixed;
+    width: 60%;
+    height: 75%;
+    z-index: 0;
+    display: inline-flex;
+   
+}
+
+#park-map {
+    background-image: no-repeat fixed center;
+    background-size: 300px 100px;
+    object-fit: contain;
 }
 
 div.col {
     width:200px;
     height:180px; 
+    text-align: center;
+    z-index: 100;
+    position: absolute;
 }
 
 div.col-sm-9{
@@ -85,3 +96,26 @@ div.col-sm-9{
 .display-font {
       font-family: $font-family-unique-display;
 }
+
+ul,
+li {
+    padding: 0;
+    margin: .75em;
+    font-size: 12px;
+    line-height: 1em;
+}
+
+footer p {
+    text-align: right;
+    font-size: .5em;
+    line-height: .5em;
+}
+
+p span {
+    font-weight: bolder;
+}
+
+footer p.display-font {
+    font-size: 1.25em;
+}
+
