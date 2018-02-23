@@ -13,17 +13,16 @@ const searchBar = document.getElementById("nav-search-bar");
 
 // Gets the content of the input field on keyup of the "Enter" key
 searchBar.addEventListener("keyup", function(e) {
-<<<<<<< HEAD
-    if (e.keyCode === 13) {
+    if (e.keyCode === 13 && e.target.value != "")  {
 
         let userInput = e.target.value.toLowerCase();
         let bucket = [{}];
-    
-
+        
+        
         console.log(userInput);
         fetchobjects.getAllAttractions().then(
             (resolve) =>{ // resolve is the array of stuff
-               
+                
                 console.log("Finding comparisons.");
                 bucket = resolve;
                 
@@ -36,35 +35,29 @@ searchBar.addEventListener("keyup", function(e) {
                         //Then, we need to get an area ${bucket[item].area_id}
                         
                         //document.getElementById(`map-area-${bucket[item].area_id}`).style
-
-
+                        
+                        
                         console.log("Found it.");
                         console.log(bucket[item].name);
                     }
-
+                    
                     else{
                         console.log("Nothing");
                     }
-
+                    
                 });
             },
             (reject) => { // something failed.
                 console.log("Error in the searchbar.");
             }
         );
+        // If the input is empty and the enter key is pressed, an alert will display asking for input from the user
+            } else if (e.keyCode === 13) {
+                window.alert("Please enter something to search for.");
+         }
         
-    }
-=======
-    if (e.keyCode === 13 && e.target.value != "") {
-// Stores the value from the input area into a new variable on "Enter" as long as it is not empty
-    let userInput = e.target.value.toLowerCase();
-    let bucket = [{}];
-    console.log(userInput);
-// If the input is empty and the enter key is pressed, an alert will display asking for input from the user
-    } else if (e.keyCode === 13) {
-        window.alert("Please enter something to search for.");
- }
->>>>>>> 6d1ca01db1f5552b0f4fdbd4753c62ca0662828c
+    });
+    
 });
 
   fetchobjects.getAllAttractions().then(
