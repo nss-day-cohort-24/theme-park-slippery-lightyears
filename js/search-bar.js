@@ -18,7 +18,7 @@ searchBar.addEventListener("keyup", function(e) {
         let userInput = e.target.value.toLowerCase();
         let bucket = [{}];
         
-        
+        // The call gets the attractions from the database, then presents the data as 'resolve'. It compares the array's property "name" data against the search term.
         console.log(userInput);
         fetchobjects.getAllAttractions().then(
             (resolve) =>{ // resolve is the array of stuff
@@ -47,7 +47,7 @@ searchBar.addEventListener("keyup", function(e) {
                     
                 });
             },
-            (reject) => { // something failed.
+            (reject) => { // A reject was returned, so something failed.
                 console.log("Error in the searchbar.");
             }
         );
