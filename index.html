@@ -53,37 +53,46 @@
                        
                 <!-- This area is for live-up-to-date list of events that is happens when the page is refresh. It is connected with the current time user is the app. -->
                 </article>
-
+                <hr>
                 <article class="display-search" id="display-search-result">
                 <!-- This area is for search results list of events. It is connected with the current time user output request such as the nav search bar input request and the map grid areas -->
                 <div class="list-group">
-                    
+                    <h4>Search bar queries and select map areas results will appear here</h4>
+                        <ul>
+                        <li>event 9:15 am</li>
+                        <li>event 9:30 am</li>
+                        <li>event 10:30 am</li>
+                        <li>event 11 am</li>
+                        <li>event 11:30 am</li>
+                        <li>event 11:45 am</li>
+                    </ul>
                 </div>
                 </article>
 
             </section>
 
-            <section class="park-map-area"> <!-- Park map for grid of 8 areas. each area becomes a hyperlink on mouse roll over. On click will display the park area events and venue details on left-output article -->
-                <div class="container" id="park-map-grid">
-                    <!-- <img src="images/UniConeland-map.png" alt="Map of UniConeland"> -->
-                    <div class="row">
-                        <div class="col" id="map-area-1"><a href="#" onclick="map-event">area 1</a></div>
-                        <div class="col" id="map-area-2"><a href="#" onclick="map-event">area 2</a></div>
-                        <div class="col" id="map-area-3"><a href="#" onclick="map-event">area 3</a></div>
+            <section class="park-map-area"> <!-- Park map for grid of 8 areas. each area becomes a hyperlink on mouse roll over. On click will display the park area events and venue details on left-output article --> 
+                <img src="images/UniConeland-map.png" alt="Map of UniConeland"  width="100%" height="500px">
 
-                        <div class="w-100"></div>
+                    <div class="container" id="park-map-grid">
+                            
+                        <div class="row">
+                            <div class="col" id="map-area-1"><a href="#" onclick="map-event">area 1</a></div>
+                            <div class="col" id="map-area-2"><a href="#" onclick="map-event">area 2</a></div>
+                            <div class="col" id="map-area-3"><a href="#" onclick="map-event">area 3</a></div>
 
-                        <div class="col" id="map-area-4"><a href="#" onclick="map-event">area 4</a></div>
-                        <div class="col" id="map-area-5"><a href="#" onclick="map-event">area 5</a></div>
-                        <div class="col" id="map-area-6"><a href="#" onclick="map-event">area 6</a></div>
+                            <div class="w-100"></div>
 
-                        <div class="w-100"></div>
-
-                        <div class="col" id="map-area-7"><a href="#" onclick="map-event">area 7</a></div>
-                        <div class="col" id="map-area-8"><a href="#" onclick="map-event">area 7</a></div>
-                        <div class="col" id="map-area-9"><a href="#" onclick="map-event">area 8</a></div>
+                            <div class="col" id="map-area-4"><a href="#" onclick="map-event">area 4</a></div>
+                            <div class="col" id="map-area-8"><a href="#" onclick="map-event">area 8</a></div>
+                            <div class="col" id="map-area-5"><a href="#" onclick="map-event">area 5</a></div>
+                            
+                            <div class="w-100"></div>
+                            <div class="col" id="map-area-6"><a href="#" onclick="map-event">area 6</a></div>
+                            <div class="col" id="map-area-7"><a href="#" onclick="map-event">area 7</a></div>
+                        </div>
                     </div>
-                </div>
+                
             </section>
         
   
@@ -91,7 +100,9 @@
             <div class="fixed-bottom">
                 <p class="uppercase">UniCone Land: "Where the sweetest of adventures await"</span> &emsp; | &emsp; <b>Location:</b> Orlando, Florida &emsp;|&emsp; <b>Hours of Operation :</b> 9 a.m - 11 p.m.</p>
                     
-            <div id="footer-date"> Today's date:</div>
+                <div id="footer-date"> 
+                Today's date:
+                </div>
             </div>
 
         </footer>

@@ -38,13 +38,14 @@ h1.special-motto {
 
 /***** Main content area  ********/
 .C-main-wrapper {
-  padding: 5em 1em 1em 1em;
+  max-width: 100%;
+  margin: 6em 3em;
   height: 100%; }
 
 /***** Left output area ********/
 section.left-output-area {
-  margin: 2em 1em 2em 3em;
-  padding: 2em 2em;
+  margin: 1em 1em 0em 0em;
+  padding: 2em;
   background-color: #fdfcfc;
   border: 1px solid #9aaaba;
   border-radius: 1em;
@@ -59,33 +60,73 @@ section.left-output-area {
 /*** styling for output content *****/
 /***** RIght map area ********/
 section.park-map-area {
-  margin: 2em 1em 2em 3em;
-  object-fit: contain;
-  padding: 2em 2em 1em 2em;
+  margin-top: 2em;
   position: fixed;
-  right: 0;
-  overflow-x: hidden;
-  position: fixed;
+  right: 1em;
   width: 60%;
   height: 70%;
-  z-index: 0;
-  display: inline-flex; }
+  top: 100px; }
 
-#park-map {
-  background-image: url "images/UniConeland-map.png" no-repeat fixed center;
-  background-size: 300px 100px;
-  width: 800px;
-  object-fit: contain; }
+img {
+  align-content: center;
+  width: 63%;
+  height: auto;
+  background-image: no-repeat;
+  background-image: fixed;
+  background-image: center;
+  object-fit: contain;
+  position: fixed;
+  left: 0x;
+  top: 100px;
+  z-index: -1;
+  padding-top: 1em;
+  padding-left: 2em;
+  padding-right: 2em; }
+
+.container {
+  width: 90%; }
 
 div.col {
-  width: 200px;
-  height: 120px;
+  width: 50% !important;
+  height: 70%;
   text-align: center;
+  margin: auto;
   align-items: center;
-  z-index: 100; }
+  position: relative;
+  padding: 4.2em;
+  z-index: 100 !important; }
 
-div.col-sm-9 {
-  max-height: 1em; }
+#map-area-1 {
+  background-color: #f27360;
+  opacity: 0.5; }
+
+#map-area-2 {
+  background-color: #9aaaba;
+  opacity: 0.5; }
+
+#map-area-3 {
+  background-color: #f3c766;
+  opacity: 0.5; }
+
+#map-area-4 {
+  background-color: #485868;
+  opacity: 0.5; }
+
+#map-area-5 {
+  background-color: #f8c8d4;
+  opacity: 0.5; }
+
+#map-area-6 {
+  background-color: #b096bc;
+  opacity: 0.5; }
+
+#map-area-7 {
+  background-color: #f5a46c;
+  opacity: 0.5; }
+
+#map-area-8 {
+  background-color: #9fc2bb;
+  opacity: 0.5; }
 
 /***** I live here in the footer bottom area *****/
 footer {
