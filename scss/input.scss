@@ -102,7 +102,7 @@ section.left-output-area {
 /***** RIght map area ********/
 
 section.park-map-area {
-    margin-top: 2em;
+    margin-top: 1em;
     // margin-left:4em;
     // margin-right: 2em;
     // padding-left: 2em;
@@ -115,7 +115,7 @@ section.park-map-area {
 
 img {
     align-content: center;
-    width: 63%;
+    width: 60%;
     height: auto;
     background-image:no-repeat;
     background-image:fixed;
@@ -126,12 +126,14 @@ img {
     top: 100px;
     z-index: -1;
     padding-top: 1em;
-    padding-left: 2em;
+    // padding-left: 2em;
     padding-right: 2em;
 }
 
 .container {
-    width: 90%;
+    width: 100%;
+    padding-right: 3em;
+    
 }
 div.col {
     width: 50% !important;
