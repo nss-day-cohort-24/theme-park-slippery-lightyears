@@ -1,6 +1,6 @@
 "use strict";
 let parkObjectsLoader;
-/*
+
 function getAllAreas() {
 
     return new Promise((resolve, reject) =>{
@@ -58,7 +58,7 @@ function getAllAttractionTypes(AttractionTypeNum){ // This returns all attractio
 
 
 }
-*/
+
 //THIS WORKS
 function getAllAttractions(){ 
 
@@ -79,4 +79,4 @@ function getAllAttractions(){
     });
 }
 //getAllAreas, getAllAreasAttractions, getAllAttractionTypes,
-module.exports = {getAllAttractions}; 
+module.exports = {getAllAttractions, getAllAreasAttractions}; 

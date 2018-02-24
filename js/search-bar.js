@@ -58,40 +58,7 @@ searchBar.addEventListener("keyup", function(e) {
         
     });
     
-});
-
-  fetchobjects.getAllAttractions().then(
-      (resolve) =>{ // resolve is the array of stuff
-          
-          console.log("Finding comparisons.");
-          bucket = resolve;
-          
-          let keys = Object.keys(bucket);
-          
-          keys.forEach(function(item){
-              let input = (bucket[item].name).toLowerCase();
-              if(input.includes(userInput)){
-                  
-                  //Then, we need to get an area ${bucket[item].area_id}
-                  
-                  document.getElementById(`map-area-${bucket[item].area_id}`).style
-
-                  console.log("Found it.");
-                  console.log(bucket[item].name);
-              }
-
-              else{
-                  console.log("Nothing");
-              }
-
-          });
-      },
-      (reject) => { // something failed.
-          console.log("Error in the searchbar.");
-      }
-  );        
-}
-   
+};
 
 module.exports = {search};
 
