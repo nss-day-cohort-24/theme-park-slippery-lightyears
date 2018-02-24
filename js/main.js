@@ -8,3 +8,4 @@ let domObjects = require("./domOnClicks");
 
 searchObjects.search.captureInput();
 domObjects.getMapSearchResults();
+

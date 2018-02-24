@@ -17,18 +17,17 @@
 
     <body>
         <header class="nav-wrapper">
-            <nav class="navbar navbarlight justify-content-between" style="background-color: #f8c8d4";>
+            <nav class="navbar navbarlight fixed-top justify-content-between" style="background-color: #f8c8d4";>
                 <a class="navbar-brand">UniCone Land</a>
-                    <input class="form-control my-2 mr-md-2" id="nav-search-bar" style="width: 500px" type="search" placeholder="Search" aria-label="Search">
+                    <input class="form-control my-2 mr-md-2" id="nav-search-bar" style="width: 400px" type="search" placeholder="Search name of attraction" aria-label="Search">
                     <!-- <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button> -->
 
                 <!-- *** Right time dropdown menu in nav  ***  -->
-                <div class="nav-item dropdown">
-                    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                       Select event time
-                      </button>
+                <!-- <div class="nav-item dropdown"> -->
+                 <div class="dropdown">
+                    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Select event time </button>
 
-                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                    <div class="dropdown-menu">
                         <a class="dropdown-item" href="#">9 a.m.-11 a.m.</a>
                         <a class="dropdown-item" href="#">12 noon-2 p.m.</a>
                         <a class="dropdown-item" href="#">3 p.m.-5 p.m.</a>
@@ -42,69 +41,78 @@
         <main class="C-main-wrapper">
             
             <section class="left-output-area" > 
-                    <h1 class="display-font">"Where the sweetest of adventures await"</h1><!--Left section that is 30% in width and will display area events and list of venues and details in that search criteria -->
+                    <h1 class="display-font special-motto">"The sweetest of adventures await you at UniCone Land"</h1><!--Left section that is 30% in width and will display area events and list of venues and details in that search criteria -->
                 <article class="display-realtime" id="display-realtime-events">
-                    <ul>
+                    <!-- Testing block for time out put -->
+                <!-- <ul>
                         <li>event 9:15 am</li>
                         <li>event 9:30 am</li>
                         <li>event 10:30 am</li>
                         <li>event 11 am</li>
                         <li>event 11:30 am</li>
                         <li>event 11:45 am</li>
-                    </ul>
+                    </ul>  -->
                        
                 <!-- This area is for live-up-to-date list of events that is happens when the page is refresh. It is connected with the current time user is the app. -->
                 </article>
-
+                <hr>
                 <article class="display-search" id="display-search-result">
                 <!-- This area is for search results list of events. It is connected with the current time user output request such as the nav search bar input request and the map grid areas -->
                 <div id="list-group">
+
+                    <h5 class="attractions">Search bar queries and select map areas results will appear here</h5>
+                    <p class="attractions-details">This area is for search results list of events. It is connected with the current time user output request such as the nav search bar input request and the map grid areas. </p>
                         <button id="myBtn">Try it</button>
-                    
+                   
                 </div>
                 </article>
 
             </section>
 
-            <section class="park-map-area"> <!-- Park map for grid of 8 areas. each area becomes a hyperlink on mouse roll over. On click will display the park area events and venue details on left-output article -->
-                <div class="container" id="park-map-grid">
-                    <img src="images/UniConeland-map.png" alt="Map of UniConeland">
-                    <div class="row">
-                        <div class="col" id="map-area-1"><a href="#" onclick="map-event">area 1</a></div>
-                        <div class="col" id="map-area-2"><a href="#" onclick="map-event">area 2</a></div>
-                        <div class="col" id="map-area-3"><a href="#" onclick="map-event">area 3</a></div>
+            <section class="park-map-area"> <!-- Park map for grid of 8 areas. each area becomes a hyperlink on mouse roll over. On click will display the park area events and venue details on left-output article --> 
+                <img src="images/UniConeland-map.png" alt="Map of UniConeland"  width="100%" height="500px">
 
-                        <div class="w-100"></div>
+                    <div class="container" id="park-map-grid">
+                            
+                        <div class="row">
+                            <div class="col" id="map-area-1"><a href="#" onclick="map-event">area 1</a></div>
+                            <div class="col" id="map-area-2"><a href="#" onclick="map-event">area 2</a></div>
+                            <div class="col" id="map-area-3"><a href="#" onclick="map-event">area 3</a></div>
 
-                        <div class="col" id="map-area-4"><a href="#" onclick="map-event">area 4</a></div>
-                        <div class="col" id="map-area-5"><a href="#" onclick="map-event">area 5</a></div>
-                        <div class="col" id="map-area-6"><a href="#" onclick="map-event">area 6</a></div>
+                            <div class="w-100"></div>
 
-                        <div class="w-100"></div>
-
-                        <div class="col" id="map-area-7"><a href="#" onclick="map-event">area 7</a></div>
-                        <div class="col" id="map-area-8"><a href="#" onclick="map-event">area 7</a></div>
-                        <div class="col" id="map-area-9"><a href="#" onclick="map-event">area 8</a></div>
+                            <div class="col" id="map-area-4"><a href="#" onclick="map-event">area 4</a></div>
+                            <div class="col" id="map-area-8"><a href="#" onclick="map-event">area 8</a></div>
+                            <div class="col" id="map-area-5"><a href="#" onclick="map-event">area 5</a></div>
+                            
+                            <div class="w-100"></div>
+                            <div class="col" id="map-area-6"><a href="#" onclick="map-event">area 6</a></div>
+                            <div class="col" id="map-area-7"><a href="#" onclick="map-event">area 7</a></div>
+                        </div>
                     </div>
-                </div>
+                
             </section>
-        </main>
+        
   
-<footer>
-    <div class="fixed-bottom">
-       <p class="display-font"> <span>UniCone Land:</span> "Where the sweetest of adventures await" </p>
-       <p></p>
-       <p><span>Location:</span> Orlando, Florida  |  
-       <span>Hours of Operation :</span> 9 a.m - 11 p.m.</p>
-                   
-        <div id="footer-date"> </div>
-    </div>
+        <footer>
+            <div class="fixed-bottom">
+                <p class="uppercase">UniCone Land: "Where the sweetest of adventures await"</span> &emsp; | &emsp; <b>Location:</b> Orlando, Florida &emsp;|&emsp; <b>Hours of Operation :</b> 9 a.m - 11 p.m.</p>
+                    
+                <div id="footer-date"> 
+                Today's date:
+                </div>
+            </div>
 
-</footer>
+        </footer>
 
+</main>
 
+<!-- cdn to bootstrap script -->
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 
-
+<!-- node_module -->
 <script src="lib/node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
 <script src="dist/app.js"></script>
 
