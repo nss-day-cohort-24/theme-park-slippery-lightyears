@@ -59,7 +59,7 @@ p.attractions-details {
 /***** Navbar fixed top area  ********/
 
 .navbar {
-    padding: 1em 3em 1em 3em !important;
+    padding: 1em 3em 1em 3em ;
 }
 
 .navbar-brand {
@@ -67,6 +67,9 @@ p.attractions-details {
     font-size: 48px;
 }
 
+.dropdown {
+    z-index: 1000;
+}
 /***** Main content area  ********/
 
 .C-main-wrapper{
