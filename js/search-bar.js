@@ -13,49 +13,53 @@ const searchBar = document.getElementById("nav-search-bar");
 
 // Gets the content of the input field on keyup of the "Enter" key
 searchBar.addEventListener("keyup", function(e) {
-    if (e.keyCode === 13 && e.target.value != "") {
-// Stores the value from the input area into a new variable on "Enter" as long as it is not empty
-    let userInput = e.target.value.toLowerCase();
-    let bucket = [{}];
-    console.log(userInput);
-// If the input is empty and the enter key is pressed, an alert will display asking for input from the user
-    } else if (e.keyCode === 13) {
-        window.alert("Please enter something to search for.");
- }
-});
+    if (e.keyCode === 13 && e.target.value != "")  {
 
-  fetchobjects.getAllAttractions().then(
-      (resolve) =>{ // resolve is the array of stuff
-          
-          console.log("Finding comparisons.");
-          bucket = resolve;
-          
-          let keys = Object.keys(bucket);
-          
-          keys.forEach(function(item){
-              let input = (bucket[item].name).toLowerCase();
-              if(input.includes(userInput)){
-                  
-                  //Then, we need to get an area ${bucket[item].area_id}
-                  
-                  document.getElementById(`map-area-${bucket[item].area_id}`).style
-
-                  console.log("Found it.");
-                  console.log(bucket[item].name);
-              }
-
-              else{
-                  console.log("Nothing");
-              }
-
-          });
-      },
-      (reject) => { // something failed.
-          console.log("Error in the searchbar.");
-      }
-  );        
-}
-   
+        let userInput = e.target.value.toLowerCase();
+        let bucket = [{}];
+        
+        // The call gets the attractions from the database, then presents the data as 'resolve'. It compares the array's property "name" data against the search term.
+        console.log(userInput);
+        fetchobjects.getAllAttractions().then(
+            (resolve) =>{ // resolve is the array of stuff
+                
+                console.log("Finding comparisons.");
+                bucket = resolve;
+                
+                let keys = Object.keys(bucket);
+                
+                keys.forEach(function(item){
+                    let input = (bucket[item].name).toLowerCase();
+                    if(input.includes(userInput)){
+                        
+                        //Then, we need to get an area ${bucket[item].area_id}
+                        
+                        //document.getElementById(`map-area-${bucket[item].area_id}`).style
+                        
+                        
+                        console.log("Found it.");
+                        console.log(bucket[item].name);
+                    }
+                    
+                    else{
+                        console.log("Nothing");
+                    }
+                    
+                });
+            },
+            (reject) => { // A reject was returned, so something failed.
+                console.log("Error in the searchbar.");
+            }
+        );
+        // If the input is empty and the enter key is pressed, an alert will display asking for input from the user
+            } else if (e.keyCode === 13) {
+                window.alert("Please enter something to search for.");
+         }
+        
+    });
+    
+    
+};
 
 module.exports = {search};
 
