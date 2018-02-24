@@ -44,7 +44,18 @@ h1.special-motto {
   line-height: 1em;
   color: $color-area-8;
 }
+// styling for results div created from attractions JS //
+h5.attractions {
+    font-size: .8em;
+    line-height: 1.3em;
+    font-family: $font-family-sans-serif;
+    font-weight: bolder;
+}
 
+p.attractions-details {
+    font-size: .7em;
+    line-height: 1.3em;
+}
 /***** Navbar fixed top area  ********/
 
 .navbar {
@@ -62,7 +73,7 @@ h1.special-motto {
     max-width:100%;
     margin: 6em 3em;
     // padding: 5em 1em 1em 1em;
-    height: 100%;
+    height: 70%;
 }
 
 /***** Left output area ********/
@@ -109,7 +120,7 @@ section.park-map-area {
     position: fixed;
     right: 1em;
     width: 60%;
-    height:70%;
+    height:60%;
     top: 100px;
 }
 
@@ -133,16 +144,18 @@ img {
 .container {
     width: 100%;
     padding-right: 3em;
-    
+    height: 540px;
 }
+
 div.col {
     width: 50% !important;
-    height: 70%;
+    height: 145px !important;
     text-align: center;
     margin: auto;
     align-items: center;
     position: relative;
     padding: 4.2em;
+    object-fit: contain;
     z-index: 100 !important;
 }
 
