@@ -58,6 +58,7 @@ searchBar.addEventListener("keyup", function(e) {
         
     });
     
+    
 };
 
 module.exports = {search};
