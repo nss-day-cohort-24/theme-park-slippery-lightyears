@@ -6,6 +6,8 @@ let num = 1;
 let attractionItem = document.getElementById("list-group");
 let selectedTime = "";
 let mapSelector;
+let bucket;
+let keys;
 
 document.getElementById("map-area-1").addEventListener("click", function(){
     mapSelector = 1;
@@ -40,15 +42,48 @@ document.getElementById("map-area-8").addEventListener("click", function(){
     console.log(mapSelector);
 });
 
-function getMapSearchResults(){
+function getSearchBarResults(resolve, bucket, userInput){
+
+    console.log("Finding comparisons in getSearchBarResults().");
+                bucket = resolve;
+                
+                let keys = Object.keys(bucket);
+                
+                // Clear input area. 
+                attractionItem.innerHTML = "";
+
+                // Go through the array and print the found items to the DOM.
+
+                keys.forEach(function(item){
+                    let input = (bucket[item].name).toLowerCase();
+                    if(input.includes(userInput)){
+                        
+                        //document.getElementById(`map-area-${bucket[item].area_id}`).style
+                        tempstring += `<div class="attractions" onclick = "function()"><h5><a> ${bucket[item].name} </a> ${bucket[item].type_id} 
+                    </h5> <p class="attraction-details">${bucket[item].description}</p></div>`;
+                        
+                        console.log("Found an item.");
+                        console.log(bucket[item].name);
+
+                        attractionItem.innerHTML += tempstring;
+                    }
+                    
+                    else{
+                        console.log("Nothing");
+                    }
+                    
+                });
+}
+
+function getMapSearchResults(){ // 
     console.log("The function getMapSearchResults() is running. ");
     document.getElementById("myBtn").addEventListener("click", function(){
         // The function parameter of "click" is the value of the button pressed which should correspond with "area id" in theme-park.json.
-        fetchfunctions.getAllAreasAttractions(num).then( 
+        fetchfunctions.getAllAreasAttractions(mapSelector).then( 
             // This is the function that fires on the click of the DOM Map.
             (resolve) => {
-                let bucket = resolve;
-                let keys = Object.keys(bucket);
+                bucket = resolve;
+                keys = Object.keys(bucket);
                 console.log("The getAllAreasAttractions() has passed a successful resolve.");
                 
                 keys.forEach(function(item){
@@ -110,5 +145,5 @@ function printTimeResults(){
     // helpful function should occur here to print a string to the DOM.
 }
 
-module.exports = {getMapSearchResults, getTimeSearchResults};
+module.exports = {getMapSearchResults, getTimeSearchResults, getSearchBarResults};
 
