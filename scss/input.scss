@@ -44,18 +44,8 @@ h1.special-motto {
   line-height: 1em;
   color: $color-area-8;
 }
-// styling for results div created from attractions JS //
-h5.attractions {
-    font-size: .8em;
-    line-height: 1.3em;
-    font-family: $font-family-sans-serif;
-    font-weight: bolder;
-}
 
-p.attractions-details {
-    font-size: .7em;
-    line-height: 1.3em;
-}
+
 /***** Navbar fixed top area  ********/
 
 .navbar {
@@ -83,7 +73,6 @@ p.attractions-details {
 
 section.left-output-area {
     margin: 1em 1em 0em 0em;
-    padding: 2em;
     background-color: $color-white;
     border: 1px solid $color-area-2;
     border-radius: 1em;
@@ -95,23 +84,30 @@ section.left-output-area {
     overflow-x: hidden;
 }
 
-/*** styling for events dropdown menu on time of events *****/
-// #display-search-result, .list-group {
-//     font-size: 12px;
-//     padding: 10px;
-//     text-align: center;
-//     border: solid 1px $color-white;
-//     margin: auto;
-// }
+.section-wrapper {
+    padding: 2em;
+}
 
-// #display-search-result {
-//     display: none;
-// }
+// styling for results div created from attractions JS //
+h5.attractions {
+    font-size: .8em;
+    line-height: 1.3em;
+    font-family: $font-family-sans-serif;
+    font-weight: bolder;
+}
+
+p.attractions-details {
+    font-size: .7em;
+    line-height: 1.3em;
+}
+/*** styling for events dropdown menu on time of events *****/
+#list-group {
+    font-size: 12px;
+    line-height: 14px;
+    border: solid 1px $color-white;
+}
 
 /*** styling for output content *****/
-// .list-group {
-
-// }
 
 /***** RIght map area ********/
 
@@ -121,33 +117,37 @@ section.park-map-area {
     // margin-right: 2em;
     // padding-left: 2em;
     position: fixed;
+    object-fit: contain;
     right: 1em;
     width: 60%;
-    height:60%;
+    height:480px;
     top: 100px;
 }
 
 img {
     align-content: center;
     width: 60%;
-    height: auto;
+    height: 100%;
     background-image:no-repeat;
     background-image:fixed;
     background-image:center;
     object-fit: contain;
     position: fixed;
-    left: 0x;
-    top: 100px;
+    right: 20px;
+    top: 0;
     z-index: -1;
     padding-top: 1em;
     // padding-left: 2em;
     padding-right: 2em;
+    
 }
 
 .container {
     width: 100%;
     padding-right: 3em;
-    height: 540px;
+    // max-height: 480px;
+    max-width: 667px;
+    
 }
 
 div.col {
