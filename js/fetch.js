@@ -1,24 +1,8 @@
 "use strict";
 let parkObjectsLoader;
 
-function getAllAreas() {
 
-    return new Promise((resolve, reject) =>{
-            
-        let attractionsObjectsLoader = new XMLHttpRequest(); 
-        
-        attractionsObjectsLoader.open("GET", `https://slippery-lightyears.firebaseio.com/.json`);
-        attractionsObjectsLoader.send();
-        
-        attractionsObjectsLoader.addEventListener("load", function() {
-            
-            var data;
-            resolve(data);
-            
-        });
-    });
-}
-
+// THIS WORKS
 function getAllAreasAttractions(areaNum){ // This returns all the areas by id for the side pane
 
     return new Promise((resolve, reject) =>{
