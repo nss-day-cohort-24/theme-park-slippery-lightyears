@@ -110,14 +110,15 @@ img {
 
 div.col {
   width: 50% !important;
-  height: 145px !important;
+  height: 50% !important;
   text-align: center;
   margin: auto;
   align-items: center;
   position: relative;
   padding: 4.2em;
   object-fit: contain;
-  z-index: 100 !important; }
+  z-index: 100 !important;
+  flex-wrap: nowrap; }
 
 #map-area-1 {
   background-color: #f27360;
