@@ -3,8 +3,16 @@
 
 console.log("testing date js");
 
-var date = new Date();
-document.getElementById("footer-date").innerHTML = date;
-console.log (Date());
+function footerTime() {
+    
+    let realTime, time, attraction;
+    realTime = document.getElementById("display-realtime-events");
+    time = new Date();
+    attraction = "";
+
+    console.log (Date());
+}
 
 
+
+module.exports = {footerTime};

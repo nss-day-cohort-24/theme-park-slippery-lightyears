@@ -28,16 +28,6 @@ h1.special-motto {
   line-height: 1em;
   color: #9fc2bb; }
 
-h5.attractions {
-  font-size: .8em;
-  line-height: 1.3em;
-  font-family: "Nunito", sans-serif;
-  font-weight: bolder; }
-
-p.attractions-details {
-  font-size: .7em;
-  line-height: 1.3em; }
-
 /***** Navbar fixed top area  ********/
 .navbar {
   padding: 1em 3em 1em 3em; }
@@ -58,7 +48,6 @@ p.attractions-details {
 /***** Left output area ********/
 section.left-output-area {
   margin: 1em 1em 0em 0em;
-  padding: 2em;
   background-color: #fdfcfc;
   border: 1px solid #9aaaba;
   border-radius: 1em;
@@ -69,28 +58,47 @@ section.left-output-area {
   float: right;
   overflow-x: hidden; }
 
+.section-wrapper {
+  padding: 2em; }
+
+h5.attractions {
+  font-size: .8em;
+  line-height: 1.3em;
+  font-family: "Nunito", sans-serif;
+  font-weight: bolder; }
+
+p.attractions-details {
+  font-size: .7em;
+  line-height: 1.3em; }
+
 /*** styling for events dropdown menu on time of events *****/
+#list-group {
+  font-size: 12px;
+  line-height: 14px;
+  border: solid 1px #fdfcfc; }
+
 /*** styling for output content *****/
 /***** RIght map area ********/
 section.park-map-area {
   margin-top: 1em;
   position: fixed;
+  object-fit: contain;
   right: 1em;
   width: 60%;
-  height: 60%;
+  height: 480px;
   top: 100px; }
 
 img {
   align-content: center;
   width: 60%;
-  height: auto;
+  height: 100%;
   background-image: no-repeat;
   background-image: fixed;
   background-image: center;
   object-fit: contain;
   position: fixed;
-  left: 0x;
-  top: 100px;
+  right: 20px;
+  top: 0;
   z-index: -1;
   padding-top: 1em;
   padding-right: 2em; }
@@ -98,18 +106,19 @@ img {
 .container {
   width: 100%;
   padding-right: 3em;
-  height: 540px; }
+  max-width: 667px; }
 
 div.col {
   width: 50% !important;
-  height: 145px !important;
+  height: 50% !important;
   text-align: center;
   margin: auto;
   align-items: center;
   position: relative;
   padding: 4.2em;
   object-fit: contain;
-  z-index: 100 !important; }
+  z-index: 100 !important;
+  flex-wrap: nowrap; }
 
 #map-area-1 {
   background-color: #f27360;
