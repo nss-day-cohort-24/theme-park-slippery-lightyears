@@ -11,6 +11,31 @@ $color-area-8:#9fc2bb;
 $color-gray:#6e6f71;
 $color-white:#fdfcfc;
 
+/***** Bootstrap styles  ********/
+
+$grid-columns:      12;
+$grid-gutter-width: 30px;
+
+$grid-breakpoints: (
+  // Extra small screen / phone
+  xs: 0,
+  // Small screen / phone
+  sm: 576px,
+  // Medium screen / tablet
+  md: 768px,
+  // Large screen / desktop
+  lg: 992px,
+  // Extra large screen / wide desktop
+  xl: 1200px
+);
+
+$container-max-widths: (
+  sm: 540px,
+  md: 720px,
+  lg: 960px,
+  xl: 1140px
+);
+
 /***** Main element styles  ********/
 html,
 body {
@@ -22,7 +47,6 @@ body {
 body {
     font-family: $font-family-sans-serif;
     line-height: 1.5em;
-    height: 100%;
     background:$color-area-5;
     background: radial-gradient(circle, $color-white, $color-white, $color-area-5);
 }
@@ -60,6 +84,7 @@ h1.special-motto {
 .dropdown {
     z-index: 1000;
 }
+
 /***** Main content area  ********/
 
 .C-main-wrapper{
@@ -67,6 +92,7 @@ h1.special-motto {
     margin: 6em 3em;
     // padding: 5em 1em 1em 1em;
     height: 70%;
+    
 }
 
 /***** Left output area ********/
@@ -86,18 +112,19 @@ section.left-output-area {
 
 .section-wrapper {
     padding: 2em;
+    overflow: scroll;
 }
 
 // styling for results div created from attractions JS //
-h5.attractions {
-    font-size: .8em;
+#list-group h5{
+    font-size: 1.2em;
     line-height: 1.3em;
     font-family: $font-family-sans-serif;
     font-weight: bolder;
 }
 
-p.attractions-details {
-    font-size: .7em;
+#list-group p {
+    font-size: 1em;
     line-height: 1.3em;
 }
 /*** styling for events dropdown menu on time of events *****/
@@ -118,50 +145,62 @@ section.park-map-area {
     // padding-left: 2em;
     position: fixed;
     object-fit: contain;
-    right: 1em;
+    right: 2em;
     width: 60%;
-    height:480px;
-    top: 100px;
+    height:540px;
+    // top: 95px;
+    top: 2em;
 }
 
 img {
     align-content: center;
     width: 60%;
-    height: 100%;
+    height:70%;
     background-image:no-repeat;
     background-image:fixed;
     background-image:center;
-    object-fit: contain;
+    object-fit: cover;
     position: fixed;
-    right: 20px;
-    top: 0;
+    right: 2em;
+    top: 20px;
     z-index: -1;
     padding-top: 1em;
     // padding-left: 2em;
-    padding-right: 2em;
-    
+    padding-right: 1em;
 }
 
 .container {
-    width: 100%;
-    padding-right: 3em;
-    // max-height: 480px;
-    max-width: 667px;
-    
+    // width: 100%;
+    padding-right: 2em;
+    max-height: 540px;
+    max-width: 100%;
 }
 
 div.col {
-    width: 50% !important;
-    height: 50% !important;
+    width: 100% !important;
+    height: 100% !important;
     text-align: center;
     margin: auto;
     align-items: center;
     position: relative;
-    padding: 4.2em;
+    padding: 4.3em 2em;
     object-fit: contain;
     z-index: 100 !important;
-    flex-wrap:nowrap;
+    // flex-wrap:nowrap;
 }
+
+// grid map area with links
+
+div.col a:hover{
+    border: 2 solid $color-white;
+}
+// a:link,
+// a:visited,
+// a:hover,
+// a:active {
+//     border: 2 solid $color-white;
+// } 
+
 
 #map-area-1 {
     background-color: $color-area-1;
@@ -195,6 +234,7 @@ div.col {
     background-color: $color-area-8 ;
     opacity: 0.5;
 }
+
 
 /***** I live here in the footer bottom area *****/
 footer {

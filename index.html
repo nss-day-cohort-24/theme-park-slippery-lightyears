@@ -44,15 +44,6 @@
             <div class="section-wrapper">
                 <h1 class="display-font special-motto">"The sweetest of adventures await you at UniCone Land"</h1><!--Left section that is 30% in width and will display area events and list of venues and details in that search criteria -->
                 <article class="display-realtime" id="display-realtime-events">
-                <!-- Testing block for time out put -->
-            <!-- <ul>
-                    <li>event 9:15 am</li>
-                    <li>event 9:30 am</li>
-                    <li>event 10:30 am</li>
-                    <li>event 11 am</li>
-                    <li>event 11:30 am</li>
-                    <li>event 11:45 am</li>
-                </ul>  -->
                 <!-- This area is for live-up-to-date list of events that is happens when the page is refresh. It is connected with the current time user is the app. -->
                 </article>
 
@@ -60,7 +51,7 @@
 
                 <article class="display-search" id="display-search-result">
                 <!-- This area is for search results list of events. It is connected with the current time user output request such as the nav search bar input request and the map grid areas -->
-                    <div id="list-group">
+                    <div class= "list-group-search" id="list-group">
                     <!-- <h5 class="attractions">Search bar queries and select map areas results will appear here</h5>
                     <p class="attractions-details">This area is for search results list of events. It is connected with the current time user output request such as the nav search bar input request and the map grid areas. </p> -->
                         <button id="myBtn">Try it</button>
@@ -70,26 +61,27 @@
             </div>
         </section>
 
-        <section class="park-map-area"> <!-- Park map for grid of 8 areas. each area becomes a hyperlink on mouse roll over. On click will display the park area events and venue details on left-output article --> 
+        <section class="park-map-area d-none d-lg-block"> <!-- Park map for grid of 8 areas. each area becomes a hyperlink on mouse roll over. On click will display the park area events and venue details on left-output article --> 
                 
             <div class="container" id="park-map-grid">
-                    <img src="images/UniConeland-map.png" alt="Map of UniConeland"  width="670" height="460">
+                 <img src="images/UniConeland-map.png" alt="Map of UniConeland" width="630px" height="540px">
 
                 <div class="row">
-                    <div class="col" id="map-area-1"><a href="#" onclick="map-event">area 1</a></div>
-                    <div class="col" id="map-area-2"><a href="#" onclick="map-event">area 2</a></div>
-                    <div class="col" id="map-area-3"><a href="#" onclick="map-event">area 3</a></div>
+                    <div class="col" id="map-area-1"><a class="page-link" href="#" onclick="true">Main Street U.S.A.</a></div>
+                    <div class="col" id="map-area-2"><a href="#" class="page-link" onclick="true">Adventureland</a></div>
+                    <div class="col" id="map-area-3"><a href="#" class="page-link" onclick="true">Frontierland</a></div>
 
                     <div class="w-100"></div>
 
-                    <div class="col" id="map-area-4"><a href="#" onclick="map-event">area 4</a></div>
-                    <div class="col" id="map-area-8"><a href="#" onclick="map-event">area 8</a></div>
-                    <div class="col" id="map-area-5"><a href="#" onclick="map-event">area 5</a></div>
+                    <div class="col" id="map-area-4"><a href="#" class="page-link" onclick="true">Liberty Square</a></div>
+                    <div class="col" id="map-area-8"><a href="#" class="page-link" onclick="true">Parent's Timeout</a></div>
+                    <div class="col" id="map-area-5"><a href="#" class="page-link" onclick="true">Fantasyland</a></div>
                     
                     <div class="w-100"></div>
-                    <div class="col" id="map-area-6"><a href="#" onclick="map-event">area 6</a></div>
-                    <div class="col" id="map-area-7"><a href="#" onclick="map-event">area 7</a></div>
+                    <div class="col" id="map-area-6"><a href="#" class="page-link" onclick="true">Tomorrowland</a></div>
+                    <div class="col" id="map-area-7"><a href="#" class="page-link" onclick="true">Cinderlla Castle</a></div>
                 </div>
+               
             </div>
                 
         </section>

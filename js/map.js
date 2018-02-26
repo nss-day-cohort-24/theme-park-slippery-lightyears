@@ -32,8 +32,8 @@ function mapAreaData() {
                 var outputString = "";
 
                 for (var i = 0; i < dataObject.length; i++) {
-                    elementArray[i].innerHTML = dataObject[i].name;
-
+                    elementArray[i].innerHTML += dataObject[i].name;
+             // ph added +=
                     // var currentArea = dataObject[i].name;
                     //   console.log("what is current area lllllllll", currentArea);
 

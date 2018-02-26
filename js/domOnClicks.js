@@ -5,7 +5,7 @@ let tempstring = "";
 let num = 1;
 let attractionItem = document.getElementById("list-group");
 let selectedTime = "";
-let mapSelector;
+let mapSelector= "";
 let bucket;
 let keys;
 
@@ -77,7 +77,7 @@ function getSearchBarResults(resolve, bucket, userInput){
 
 function getMapSearchResults(){ // 
     console.log("The function getMapSearchResults() is running. ");
-    document.getElementById("myBtn").addEventListener("click", function(){
+    document.getElementById("park-map-grid").addEventListener("click", function(){
         // The function parameter of "click" is the value of the button pressed which should correspond with "area id" in theme-park.json.
         fetchfunctions.getAllAreasAttractions(mapSelector).then( 
             // This is the function that fires on the click of the DOM Map.
