@@ -51,10 +51,27 @@
 
                 <article class="display-search" id="display-search-result">
                 <!-- This area is for search results list of events. It is connected with the current time user output request such as the nav search bar input request and the map grid areas -->
-                    <div class= "list-group-search" id="list-group">
-                    <!-- <h5 class="attractions">Search bar queries and select map areas results will appear here</h5>
-                    <p class="attractions-details">This area is for search results list of events. It is connected with the current time user output request such as the nav search bar input request and the map grid areas. </p> -->
-                        <button id="myBtn">Try it</button>
+                    <!-- <div class= "list-group-search" id="list-group"> -->
+                   
+                    <div class= "list-group-search panel-group" id="accordion">
+                    <!-- bootstrap code for card reveal descriptions -->
+                            <!-- <div class="card">
+                                    <div class="card-header" id="headingOne">
+                                      <h5 class="mb-0">
+                                        <button class="btn btn-link" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                        Attraction name (type)
+                                        </button>
+                                      </h5>
+                                    </div>
+                                
+                                    <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
+                                      <div class="card-body">
+                                            Attraction description
+                                      </div>
+                                    </div>
+                                  </div> -->
+                   
+                        <!-- <button id="myBtn">Try it</button> -->
                    
                     </div>
                 </article>
@@ -64,22 +81,23 @@
         <section class="park-map-area d-none d-lg-block"> <!-- Park map for grid of 8 areas. each area becomes a hyperlink on mouse roll over. On click will display the park area events and venue details on left-output article --> 
                 
             <div class="container" id="park-map-grid">
-                 <img src="images/UniConeland-map.png" alt="Map of UniConeland" width="630px" height="540px">
-
+                
                 <div class="row">
-                    <div class="col" id="map-area-1"><a class="page-link" href="#" onclick="true">Main Street U.S.A.</a></div>
-                    <div class="col" id="map-area-2"><a href="#" class="page-link" onclick="true">Adventureland</a></div>
-                    <div class="col" id="map-area-3"><a href="#" class="page-link" onclick="true">Frontierland</a></div>
+                    <img src="images/uniConeland-map1.png" alt="Map of UniConeland" width="630px" height="600px">
+
+                    <div class="col" id="map-area-1" target="_self" onclick="true"><a class="page-link" href="#" >Main Street U.S.A.</a></div>
+                    <div class="col" id="map-area-2"  target="_self" onclick="true"><a href="#" class="page-link"  >Adventureland</a></div>
+                    <div class="col" id="map-area-3" target="_self" onclick="true" ><a href="#" class="page-link">Frontierland</a></div>
 
                     <div class="w-100"></div>
 
-                    <div class="col" id="map-area-4"><a href="#" class="page-link" onclick="true">Liberty Square</a></div>
-                    <div class="col" id="map-area-8"><a href="#" class="page-link" onclick="true">Parent's Timeout</a></div>
+                    <div class="col" id="map-area-4" target="_self" onclick="true"><a href="#" class="page-link">Liberty Square</a></div>
+                    <div class="col" id="map-area-8" target="_self" onclick="true" ><a href="#" class="page-link" >Parent's Timeout</a></div>
                     <div class="col" id="map-area-5"><a href="#" class="page-link" onclick="true">Fantasyland</a></div>
                     
                     <div class="w-100"></div>
-                    <div class="col" id="map-area-6"><a href="#" class="page-link" onclick="true">Tomorrowland</a></div>
-                    <div class="col" id="map-area-7"><a href="#" class="page-link" onclick="true">Cinderlla Castle</a></div>
+                    <div class="col" id="map-area-6" onclick="true"  target="_self"><a href="#" class="page-link" >Tomorrowland</a></div>
+                    <div class="col" id="map-area-7" target="_self" onclick="true"><a href="#" class="page-link" >Cinderlla Castle</a></div>
                 </div>
                
             </div>
@@ -89,7 +107,7 @@
   
         <footer>
             <div class="fixed-bottom">
-                <p class="uppercase">UniCone Land: "Where the sweetest of adventures await"</span> &emsp; | &emsp; <b>Location:</b> Orlando, Florida &emsp;|&emsp; <b>Hours of Operation :</b> 9 a.m - 11 p.m.</p>
+                <p class="uppercase">&copy; UniCone Land: "Where the sweetest of adventures await"</span> &emsp; | &emsp; <b>Location:</b> Orlando, Florida &emsp;|&emsp; <b>Hours of Operation :</b> 9 a.m - 11 p.m.</p>
                     
                 <div id="footer-date"> 
                 </div>

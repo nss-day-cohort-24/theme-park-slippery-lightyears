@@ -3,11 +3,12 @@
 let fetchfunctions = require("./fetch");
 let tempstring = "";
 let num = 1;
-let attractionItem = document.getElementById("list-group");
+let attractionItem = document.getElementById("accordion");
 let selectedTime = "";
-let mapSelector= "";
+let mapSelector;
 let bucket;
 let keys;
+let collapse = [];
 
 document.getElementById("map-area-1").addEventListener("click", function(){
     mapSelector = 1;
@@ -55,12 +56,28 @@ function getSearchBarResults(resolve, bucket, userInput){
                 // Go through the array and print the found items to the DOM.
 
                 keys.forEach(function(item){
+                    let i = 0; // PH trying to put counter for collapse options
                     let input = (bucket[item].name).toLowerCase();
                     if(input.includes(userInput)){
                         
                         //document.getElementById(`map-area-${bucket[item].area_id}`).style
-                        tempstring += `<div class="attractions" onclick = "function()"><h5><a> ${bucket[item].name} </a> ${bucket[item].type_id} 
-                    </h5> <p class="attraction-details">${bucket[item].description}</p></div>`;
+                    //     tempstring += `<div class="attractions" onclick = "function()"><h5><a> ${bucket[item].name} </a> ${bucket[item].type_id} 
+                    // </h5> <p class="attraction-details">${bucket[item].description}</p></div>`;
+
+                // PH === Bootstrap code for accordion card;  <a data-toggle="collapse" data-parent="#accordion" href="#collapse1">
+                   tempstring += `<div class="card">
+                   <div class="card-header" id="headingOne">
+                     <h5 class="mb-0">
+                       <button class="btn btn-link" data-toggle="collapse" data-target="#${collapse[i]}" aria-expanded="true" aria-controls="#${collapse[i]}">
+                   ${bucket[item].name}(${bucket[item].type_id}) </button>
+                   </h5>
+                 </div>
+             
+                 <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
+                   <div class="card-body">${bucket[item].description}</div>
+                   </div>
+                 </div>`;
+
                         
                         console.log("Found an item.");
                         console.log(bucket[item].name);
@@ -87,9 +104,22 @@ function getMapSearchResults(){ //
                 console.log("The getAllAreasAttractions() has passed a successful resolve.");
                 
                 keys.forEach(function(item){
-                    tempstring += `<div class="attractions" onclick = "function()"><h5><a> ${bucket[item].name} </a> ${bucket[item].type_id} 
-                    </h5> <p class="attraction-details">${bucket[item].description}</p></div>`; //The function() should be something that activates a slide back to reveal the description content. Phonetip, please review.
-                        
+                    //  tempstring += `<div class="attractions" onclick = "function()"><h5><a> ${bucket[item].name} </a> ${bucket[item].type_id} </h5> <p class="attraction-details">${bucket[item].description}</p></div>`;
+                    
+                    //The function() should be something that activates a slide back to reveal the description content. 
+                    //PH === added bootstrap styling for the card.
+                   
+
+                   tempstring += `<div class="card">
+                   <div class="card-header" id="headingOne" onclick = "function()"><h5 class="mb-0">
+                       <button class="btn btn-link" data-toggle="collapse" data-target="#collapseOne}" aria-expanded="true" aria-controls="##collapseOne"> ${bucket[item].name} (${bucket[item].type_id})</button></h5></div>
+                                
+                     <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
+                       <div class="card-body">
+                            ${bucket[item].description}
+                        </div>
+                    </div>
+                    </div>`;
                     
                     attractionItem.innerHTML += tempstring;
                     });
