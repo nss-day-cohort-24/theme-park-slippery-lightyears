@@ -1,6 +1,6 @@
 #UniCone Land Interactive Map
 
-##Usage
+##Usage Instructions
 Using the interactive map is easy! Park areas are clickable links displayed over their locations on the map. Clicking on an area will display attractions located in that area in the attraction list.
 
 Attractions will display in a list to the left of the map.  Click on an attraction to unfold the card and display the details of the selected attraction.
