@@ -62,18 +62,21 @@ section.left-output-area {
   padding: 2em;
   overflow: scroll; }
 
-#list-group h5 {
+div.card-header {
+  word-wrap: break-word; }
+
+#accordion h5 {
   font-size: 1.2em;
   line-height: 1.3em;
   font-family: "Nunito", sans-serif;
   font-weight: bolder; }
 
-#list-group p {
+#accordion p {
   font-size: 1em;
   line-height: 1.3em; }
 
 /*** styling for events dropdown menu on time of events *****/
-#list-group {
+#accordion {
   font-size: 12px;
   line-height: 14px;
   border: solid 1px #fdfcfc; }
@@ -137,6 +140,12 @@ a:hover.col + div {
 
 #map-area-2 {
   background: rgba(154, 170, 186, 0.3); }
+
+#map-area-2 a:hover,
+#map-area-2 a:active {
+  background: rgba(242, 115, 96, 0.9);
+  outline-style: solid;
+  outline-color: #fdfcfc; }
 
 #map-area-3 {
   background-color: rgba(243, 199, 102, 0.3); }
