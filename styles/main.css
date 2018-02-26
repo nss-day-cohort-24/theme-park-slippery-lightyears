@@ -132,38 +132,26 @@ a:hover.col + div {
 #map-area-1 {
   background: rgba(242, 115, 96, 0.5); }
 
-#map-area-1 a:hover,
-#map-area-1 a:active {
-  background: rgba(242, 115, 96, 0.9);
-  outline-style: solid;
-  outline-color: #fdfcfc; }
-
 #map-area-2 {
-  background: rgba(154, 170, 186, 0.3); }
-
-#map-area-2 a:hover,
-#map-area-2 a:active {
-  background: rgba(242, 115, 96, 0.9);
-  outline-style: solid;
-  outline-color: #fdfcfc; }
+  background: rgba(154, 170, 186, 0.5); }
 
 #map-area-3 {
-  background-color: rgba(243, 199, 102, 0.3); }
+  background-color: rgba(243, 199, 102, 0.5); }
 
 #map-area-4 {
-  background-color: rgba(72, 88, 104, 0.3); }
+  background-color: rgba(72, 88, 104, 0.5); }
 
 #map-area-5 {
-  background-color: rgba(248, 200, 212, 0.3); }
+  background-color: rgba(248, 200, 212, 0.5); }
 
 #map-area-6 {
-  background-color: rgba(176, 150, 188, 0.3); }
+  background-color: rgba(176, 150, 188, 0.5); }
 
 #map-area-7 {
-  background-color: rgba(245, 164, 108, 0.3); }
+  background-color: rgba(245, 164, 108, 0.5); }
 
 #map-area-8 {
-  background-color: rgba(159, 194, 187, 0.3); }
+  background-color: rgba(159, 194, 187, 0.5); }
 
 /***** I live here in the footer bottom area *****/
 footer {
