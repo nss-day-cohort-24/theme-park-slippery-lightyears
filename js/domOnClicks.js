@@ -2,13 +2,54 @@
 
 let fetchfunctions = require("./fetch");
 let tempstring = "";
-let num = 1;
+
 let attractionItem = document.getElementById("accordion");
 let selectedTime = "";
 let mapSelector;
-let bucket;
+let bucket; // --
 let keys;
+let timeSlot = {}; // Needs to be connected to the dom by an eventListener to assume the value of a case option.
+// Grabs element where the date will be outputted
+let dateElement = document.getElementById("footer-date");
+console.log(dateToday);
 let collapse = [];
+let timeByEachTime;
+let arr;
+let hour;
+let ampm;
+
+
+
+// Initializes a new variable that grabs the current date and time
+let fullDate = new Date();
+let currentHour = fullDate.getHours();
+if(currentHour > 12) // Convert from 24 to 12 hour stipulation.
+    {
+        currentHour = fullDate.getHours() - 12;
+    }
+ else {
+     currentHour = fullDate.getHours();
+    }
+let currentSecond = fullDate.getSeconds();
+let currentMinute = fullDate.getMinutes();
+let currentDay = fullDate.getDay();
+let currentMonth = fullDate.getMonth();
+let currentDate = fullDate.getDate();
+let currentYear = fullDate.getFullYear();
+var dateToday = `${currentDay}, ${currentMonth} ${currentDate}, ${currentYear}`;
+console.log(currentHour);
+var dropdown911AM = document.getElementById("dropdown-911AM");
+var dropdown122 = document.getElementById("dropdown-122");
+var dropdown35 = document.getElementById("dropdown-35");
+var dropdown68 = document.getElementById("dropdown-68");
+var dropdown911PM = document.getElementById("dropdown-911PM");
+
+
+
+dateElement.innerHTML += dateToday;
+
+/// EVENT HANDLERS ACCORDING TO AREA CLICKED ON THE MAP ///
+
 
 document.getElementById("map-area-1").addEventListener("click", function(){
     mapSelector = 1;
@@ -43,26 +84,35 @@ document.getElementById("map-area-8").addEventListener("click", function(){
     console.log(mapSelector);
 });
 
-function getSearchBarResults(resolve, bucket, userInput){
+function getMapSearchResultsOnLoad(){ // The initial On Load function
+    console.log("The function getMapSearchResultsOnLoad() is running. ");
+    
+        fetchfunctions.getAllAttractions().then( 
+        
+            (resolve)=> {
 
-    console.log("Finding comparisons in getSearchBarResults().");
                 bucket = resolve;
-                
                 let keys = Object.keys(bucket);
+                console.log("The getAllAttractions() has passed a successful resolve.");
                 
                 // Clear input area. 
                 attractionItem.innerHTML = "";
 
                 // Go through the array and print the found items to the DOM.
-
                 keys.forEach(function(item){
-                    let i = 0; // PH trying to put counter for collapse options
-                    let input = (bucket[item].name).toLowerCase();
-                    if(input.includes(userInput)){
-                        
-                        //document.getElementById(`map-area-${bucket[item].area_id}`).style
-                    //     tempstring += `<div class="attractions" onclick = "function()"><h5><a> ${bucket[item].name} </a> ${bucket[item].type_id} 
-                    // </h5> <p class="attraction-details">${bucket[item].description}</p></div>`;
+                    
+                    
+                    for (var i = 0; i < bucket[item].length; i++)
+                        for (var j = 0; j < bucket[item].time[i].length; j++){
+                            
+                            // SERIES OF TESTS //
+                            console.log(typeof bucket[item]);
+                            console.log(bucket[item]);
+                            timeByEachTime = bucket[item].times[i][j];
+                            console.log("This is the times array:");
+                            console.log(bucket[item].times);
+                            console.log("This is a specific fucking time:");
+                            console.log(bucket[item].times[i] + "        " + bucket[item].times[i][j]);
 
                 // PH === Bootstrap code for accordion card;  <a data-toggle="collapse" data-parent="#accordion" href="#collapse1">
                    tempstring += `<div class="card">
@@ -78,18 +128,44 @@ function getSearchBarResults(resolve, bucket, userInput){
                    </div>
                  </div>`;
 
-                        
-                        console.log("Found an item.");
-                        console.log(bucket[item].name);
 
-                        attractionItem.innerHTML += tempstring;
-                    }
-                    
-                    else{
-                        console.log("Nothing");
-                    }
-                    
-                });
+                            arr = timeByEachTime.split(':');
+                            hour = arr[0];
+                            ampm = arr[1]; 
+
+                            if ((currentHour === hour)){
+                                
+                                tempstring += `<div class="card">
+                                <div class="card-header" id="headingOne">
+                                    <h5 class="mb-0">
+                                    <button class="btn btn-link" data-toggle="collapse" data-target="#${collapse[i]}" aria-expanded="true" aria-controls="#${collapse[i]}">
+                                ${bucket[item].name}(${bucket[item].type_id}) </button>
+                                </h5>
+                                </div>
+                            
+                                <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
+                                <div class="card-body">${bucket[item].description}</div>
+                                </div>
+                                </div>`;
+
+                            }
+                        }
+                        
+                       // PH trying to put counter for collapse options
+                        let input = (bucket[item].name).toLowerCase();   
+                        // DELETE ALL THESE NOTES BEFORE FINAL---
+                        //document.getElementById(`map-area-${bucket[item].area_id}`).style
+                        // tempstring += `<div class="attractions" onclick = "function()"><h5><a> ${bucket[item].name} </a> ${bucket[item].type_id} 
+                        // </h5> <p class="attraction-details">${bucket[item].description}</p></div>`;
+                    // PH === Bootstrap code for accordion card;  <a data-toggle="collapse" data-parent="#accordion" href="#collapse1">
+                    attractionItem.innerHTML += tempstring;   
+        });
+    },
+
+        (reject)=>{
+            console.log ("Big Reject.");
+        }
+    );
 }
 
 function getMapSearchResults(){ // 
@@ -101,8 +177,8 @@ function getMapSearchResults(){ //
             (resolve) => {
                 bucket = resolve;
                 keys = Object.keys(bucket);
-                console.log("The getAllAreasAttractions() has passed a successful resolve.");
-                
+                console.log("The getAllAttractions() has passed a successful resolve.");
+                console.log(resolve);
                 keys.forEach(function(item){
                     //  tempstring += `<div class="attractions" onclick = "function()"><h5><a> ${bucket[item].name} </a> ${bucket[item].type_id} </h5> <p class="attraction-details">${bucket[item].description}</p></div>`;
                     
@@ -129,13 +205,50 @@ function getMapSearchResults(){ //
                 }
         );
     });
+    
 }
 
+function getSearchBarResults(resolve, bucket, userInput){
+
+    console.log("Finding comparisons in getSearchBarResults().");
+    bucket = resolve;
+    
+    let keys = Object.keys(bucket);
+    
+    // Clear input area. 
+
+    attractionItem.innerHTML = " ";
+
+    // Go through the array and print the found items to the DOM.
+
+    keys.forEach(function(item){
+        let input = (bucket[item].name).toLowerCase();
+        if(input.includes(userInput)){
+            
+            //document.getElementById(`map-area-${bucket[item].area_id}`).style
+            tempstring += `<div class="attractions" onclick = "function()"><h5><a> ${bucket[item].name} </a> ${bucket[item].type_id} 
+        </h5> <p class="attraction-details">${bucket[item].description}</p></div>`;
+            
+            console.log("Found an item.");
+            console.log(bucket[item].name);
+
+            //highlightThis = bucket[item].area_id
+            attractionItem.innerHTML += tempstring;
+        }
+        
+        else{
+            console.log("Nothing");
+        }
+        
+    });
+}
+
+
 function getTimeSearchResults(){
-    document.getElementById("dropdownMenuButton").addEventListener("click", function(){ // when the value is selected from the drop down menu
-        // upon the click of the selected time, I want the results to be filtered by appropriate times.
+    document.getElementById("dropdownMenuButton").addEventListener("click", function(){ // When the value is selected from the drop down menu,
+        // upon the click of the selected time, we want the results to be filtered by appropriate times.
         console.log("The function getTimeSearchResults() is running.");
-        fetchfunctions.getAllAreasAttractions(num).then(
+        fetchfunctions.getAllAreasAttractions(mapSelector).then(
             (resolve)=>{
                 console.log("The getAllAreasAttractions() passed a successful resolve within the getTimeSearchResults().");
                 attractionItem.innerHTML = "";
@@ -151,23 +264,135 @@ function getTimeSearchResults(){
 }
 
 function sortTimeOfAttractions(collection, keys){
+ 
+    console.log("The function sortTimeofAttractions() is running");
 
-    let bucketOfTimes = [{}];
-    keys.forEach(function(item){ // For each item in the keys...
-        collection[item].times.forEach(function(time){ // and for each item within the property time...
-            if(time.includes(selectedTime)) // NOTE this probably needs to be more specific.
-                bucketOfTimes.shift(item); // collect the applicable items with time slots
-        });
-    });
+    let localTime = [{}];
+    let tempArr = [];
+    let testArr = [];
+    /*<== ^^TESTS (Delete later) ==> */
+    let itemsByTimeSearch = [{}];
+    keys.forEach(function(item){
+        if(collection[item].times !== undefined ){
+            localTime.unshift(collection[item].times);
+            
+            for(var i = 0; i< collection[item].length; i++){
+                for(var j = 0; j < collection[item].times[i].length; j++)
+                {
+                    // Here we parse the time by hour, minute and AMPM 
+                    
+                    timeByEachTime = collection[item].times[i][j];
+                    console.log("This is the times array:");
+                    console.log(collection[item].times);
+                    console.log("This is a specific fucking time:");
+                    console.log(collection[item].times[i] + "        " + collection[item].times[i][j]);
+                    arr = timeByEachTime.split(':');
+                    hour = arr[0];
+                    ampm = arr[1]; 
 
-    /*-->
+                    
+                    console.log(hour + ":" + ampm);
+                    console.log(typeof ampm);
+                    if (ampm.includes("PM")){
+                        console.log("This is a PM time.");
+                    }
+                    if (ampm.includes("AM")){
+                        console.log("This is a AM time.");
+                    }
+                    
+                    if (hour >= 9 && hour < 12 && ampm.includes("AM")){
+                       //testArr.shift(localTime[i][j]);
+                        console.log("Met the condition: Between 9 - 11:59 PM. INSERTED TO THE DOM.");
+                        console.log(localTime[i][j] + "-- INSERTED");
+                        dropdown911AM.addEventListener("click", function(){
+                            attractionItem.innerHTML = "";
+                            tempstring += `<div class="card">
+                           <div class="card-header" id="headingOne" onclick = "function()"><h5 class="mb-0">
+                               <button class="btn btn-link" data-toggle="collapse" data-target="#collapseOne}" aria-expanded="true" aria-controls="##collapseOne"> ${collection[i].name} (${collection[i].type_id})</button></h5></div>
+                                        
+                             <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
+                               <div class="card-body">
+                                    ${collection[i].description}
+                                </div>
+                            </div>
+                            </div>`;
+                            attractionItem.innerHTML += tempstring;
+        
+        
+                        });
+        
+                    }
+        
+                    if (hour >= 12  && ampm.includes("PM")){ //&& hour < 3
+                        console.log("Met the condition: Between 9 - 11:59 PM. INSERTED TO THE DOM");
+                        console.log(localTime[i][j] + "-- INSERTED");
+                        dropdown122.addEventListener("click", function(){
+                            attractionItem.innerHTML = "";
+                            tempstring += `<div class="card">
+                           <div class="card-header" id="headingOne" onclick = "function()"><h5 class="mb-0">
+                               <button class="btn btn-link" data-toggle="collapse" data-target="#collapseOne}" aria-expanded="true" aria-controls="##collapseOne"> ${collection[i].name} (${collection[i].type_id})</button></h5></div>
+                                        
+                             <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
+                               <div class="card-body">
+                                    ${collection[i].description}
+                                </div>
+                            </div>
+                            </div>`;
+                            attractionItem.innerHTML += tempstring;
+        
+        
+                        });
+                    }
+        
+                    if (hour >= 2 && hour < 5 && ampm.includes("PM")){
+                        console.log("Met the condition: Between 2 - 4:59 PM. INSERTED TO THE DOM");
+                        console.log(localTime[i][j] + "-- INSERTED");
+                        dropdown35.addEventListener("click", function(){
+                            attractionItem.innerHTML = "";
+                            tempstring += `<div class="card">
+                           <div class="card-header" id="headingOne" onclick = "function()"><h5 class="mb-0">
+                               <button class="btn btn-link" data-toggle="collapse" data-target="#collapseOne}" aria-expanded="true" aria-controls="##collapseOne"> ${collection[i].name} (${collection[i].type_id})</button></h5></div>
+                                        
+                             <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
+                               <div class="card-body">
+                                    ${collection[i].description}
+                                </div>
+                            </div>
+                            </div>`;
+                            attractionItem.innerHTML += tempstring;
+        
+        
+                        });
+                    }
+        
+                    if (hour >= 6 && hour < 8 && ampm.includes("PM")){
+                        console.log("Met the condition: Between 6 - 8:59 PM. INSERTED TO THE DOM");
+                        console.log(localTime[i][j] + "-- INSERTED");
+                        dropdown68.addEventListener("click", function(){
+                            attractionItem.innerHTML = "";
+                            tempstring += `<div class="card">
+                           <div class="card-header" id="headingOne" onclick = "function()"><h5 class="mb-0">
+                               <button class="btn btn-link" data-toggle="collapse" data-target="#collapseOne}" aria-expanded="true" aria-controls="##collapseOne"> ${collection[i].name} (${collection[i].type_id})</button></h5></div>
+                                        
+                             <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
+                               <div class="card-body">
+                                    ${collection[i].description}
+                                </div>
+                            </div>
+                            </div>`;
+                            attractionItem.innerHTML += tempstring;
+                                });
+                            }      
+            
+                    } // END OF 2ND FOR LOOP
+                } // END OF 1ST FOR LOOP
+            } // END OF IF UNDEFINED STATEMENT
 
-    printTimeResults();
 
-
-    -->*/
-    return bucketOfTimes;
-}
+        } // ANON FUNCTION
+    
+    );// END OF FOREACH LOOP 
+}// END OF FUNCTION
 
 function printTimeResults(){
 
@@ -175,5 +400,5 @@ function printTimeResults(){
     // helpful function should occur here to print a string to the DOM.
 }
 
-module.exports = {getMapSearchResults, getTimeSearchResults, getSearchBarResults};
+module.exports = {getMapSearchResultsOnLoad, getTimeSearchResults, getSearchBarResults};
 

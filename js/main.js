@@ -7,7 +7,7 @@ let mapAreas = require("./map");
 
 
 searchObjects.search.captureInput();
-domObjects.getMapSearchResults();
+domObjects.getMapSearchResultsOnLoad();
 domObjects.getTimeSearchResults();
 
 
