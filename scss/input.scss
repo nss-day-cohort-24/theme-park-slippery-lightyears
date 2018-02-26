@@ -1,15 +1,40 @@
 $font-family-sans-serif:'Nunito', sans-serif;
 $font-family-unique-display: 'Amatic SC';
-$color-area-1:#f27360;
-$color-area-2:#9aaaba;
-$color-area-3:#f3c766;
-$color-area-4:#485868;
-$color-area-5:#f8c8d4;
-$color-area-6:#b096bc;
-$color-area-7:#f5a46c;
-$color-area-8:#9fc2bb;
-$color-gray:#6e6f71;
-$color-white:#fdfcfc;
+$color-area-1:rgb(242, 115, 96);
+$color-area-2:rgb(154, 170, 186);
+$color-area-3:rgb(243, 199, 102);
+$color-area-4:rgb(72, 88, 104);
+$color-area-5:rgb(248, 200, 212);
+$color-area-6:rgb(176, 150, 188);
+$color-area-7:rgb(245, 164, 108);
+$color-area-8:rgb(159, 194, 187);
+$color-gray:rgb(110, 111, 113);
+$color-white:rgb(253, 252, 252);
+
+/***** Bootstrap styles  ********/
+
+$grid-columns:      12;
+$grid-gutter-width: 30px;
+
+$grid-breakpoints: (
+  // Extra small screen / phone
+  xs: 0,
+  // Small screen / phone
+  sm: 576px,
+  // Medium screen / tablet
+  md: 768px,
+  // Large screen / desktop
+  lg: 992px,
+  // Extra large screen / wide desktop
+  xl: 1200px
+);
+
+$container-max-widths: (
+  sm: 540px,
+  md: 720px,
+  lg: 960px,
+  xl: 1140px
+);
 
 /***** Main element styles  ********/
 html,
@@ -22,7 +47,6 @@ body {
 body {
     font-family: $font-family-sans-serif;
     line-height: 1.5em;
-    height: 100%;
     background:$color-area-5;
     background: radial-gradient(circle, $color-white, $color-white, $color-area-5);
 }
@@ -44,18 +68,8 @@ h1.special-motto {
   line-height: 1em;
   color: $color-area-8;
 }
-// styling for results div created from attractions JS //
-h5.attractions {
-    font-size: .8em;
-    line-height: 1.3em;
-    font-family: $font-family-sans-serif;
-    font-weight: bolder;
-}
 
-p.attractions-details {
-    font-size: .7em;
-    line-height: 1.3em;
-}
+
 /***** Navbar fixed top area  ********/
 
 .navbar {
@@ -70,6 +84,7 @@ p.attractions-details {
 .dropdown {
     z-index: 1000;
 }
+
 /***** Main content area  ********/
 
 .C-main-wrapper{
@@ -77,13 +92,13 @@ p.attractions-details {
     margin: 6em 3em;
     // padding: 5em 1em 1em 1em;
     height: 70%;
+    
 }
 
 /***** Left output area ********/
 
 section.left-output-area {
     margin: 1em 1em 0em 0em;
-    padding: 2em;
     background-color: $color-white;
     border: 1px solid $color-area-2;
     border-radius: 1em;
@@ -95,105 +110,132 @@ section.left-output-area {
     overflow-x: hidden;
 }
 
-/*** styling for events dropdown menu on time of events *****/
-// #display-search-result, .list-group {
-//     font-size: 12px;
-//     padding: 10px;
-//     text-align: center;
-//     border: solid 1px $color-white;
-//     margin: auto;
-// }
+.section-wrapper {
+    padding: 2em;
+    overflow: scroll;
+}
 
-// #display-search-result {
-//     display: none;
-// }
+// styling for results div created from attractions JS //
+
+
+
+
+#list-group h5{
+    font-size: 1.2em;
+    line-height: 1.3em;
+    font-family: $font-family-sans-serif;
+    font-weight: bolder;
+}
+
+#list-group p {
+    font-size: 1em;
+    line-height: 1.3em;
+}
+/*** styling for events dropdown menu on time of events *****/
+#list-group {
+    font-size: 12px;
+    line-height: 14px;
+    border: solid 1px $color-white;
+}
 
 /*** styling for output content *****/
-// .list-group {
-
-// }
 
 /***** RIght map area ********/
 
 section.park-map-area {
-    margin-top: 1em;
+    margin-top: 6em;
     // margin-left:4em;
     // margin-right: 2em;
     // padding-left: 2em;
     position: fixed;
-    right: 1em;
+    object-fit: contain;
+    right: 2em;
     width: 60%;
-    height:60%;
-    top: 100px;
+    height:600px;
+    // top: 95px;
+    top: 1.2em;
 }
 
 img {
     align-content: center;
     width: 60%;
-    height: auto;
+    height:83%;
     background-image:no-repeat;
     background-image:fixed;
     background-image:center;
-    object-fit: contain;
+    object-fit: cover;
     position: fixed;
-    left: 0x;
-    top: 100px;
+    right: 2em;
+    top: 20px;
     z-index: -1;
-    padding-top: 1em;
+    padding-top: 6em;
     // padding-left: 2em;
-    padding-right: 2em;
+    padding-right: 1em;
 }
 
 .container {
-    width: 100%;
-    padding-right: 3em;
-    height: 540px;
+    // width: 100%;
+    padding-right: 2em;
+    max-height: 600px;
+    max-width: 100%;
+    
 }
 
 div.col {
-    width: 50% !important;
-    height: 145px !important;
+    width: 100% !important;
+    height: 100% !important;
+    color: $color-white;
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.842);
     text-align: center;
     margin: auto;
     align-items: center;
     position: relative;
-    padding: 4.2em;
+    padding: 4.45em 2em;
     object-fit: contain;
     z-index: 100 !important;
+    // flex-wrap:nowrap;
+    border: 2 solid $color-white; 
+}
+
+// grid map area with links
+
+a:hover.col + div {
+    border: 2 solid $color-white;
 }
 
 #map-area-1 {
-    background-color: $color-area-1;
-    opacity: 0.5;
+    background: rgba(242, 115, 96, 0.5);
 }
+#map-area-1 a:hover,
+#map-area-1 a:active {
+    background: rgba(242, 115, 96, 0.9);
+    outline-style: solid;
+    outline-color: $color-white;
+} 
+
 #map-area-2 {
-    background-color: $color-area-2;
-    opacity: 0.5;
+    background: rgba(154, 170, 186, .3);
 }
+
 #map-area-3 {
-    background-color: $color-area-3;
-    opacity: 0.5;
+    background-color: rgba(243, 199, 102, .3);
 }
 #map-area-4 {
-    background-color: $color-area-4;
-    opacity: 0.5;
+    background-color:rgba(72, 88, 104, .3);
 }
 #map-area-5 {
-    background-color: $color-area-5;
-    opacity: 0.5;
+    background-color: rgba(248, 200, 212, .3);
 }
 #map-area-6 {
-    background-color: $color-area-6;
-    opacity: 0.5;
+    background-color: rgba(176, 150, 188, .3)
 }
 #map-area-7 {
-   background-color: $color-area-7;
-   opacity: 0.5;
+   background-color:rgba(245, 164, 108, .3)
 }
 #map-area-8 {
-    background-color: $color-area-8 ;
-    opacity: 0.5;
+    background-color: rgba(159, 194, 187, .3);
 }
+
 
 /***** I live here in the footer bottom area *****/
 footer {
