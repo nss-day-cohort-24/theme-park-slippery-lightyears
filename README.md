@@ -1,4 +1,4 @@
-# Theme Park Map Builder - Group Project
+# Slippery Lightyears
 
 ## Client
 Unitainment Theme Park
