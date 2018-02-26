@@ -20,3 +20,14 @@ Create a positive guest experience by managing guest traffic throughout all area
 * Browserify
 * Grid framework of your choice
 * Firebase for data storage and retrieval
+
+## SETUP
+npm install browserify --save-dev 
+npm install grunt-browserify --save-dev 
+npm install grunt --save-dev 
+npm install jshint --save-dev 
+npm install grunt-contrib-jshint --save-dev 
+npm install jshint-stylish --save-dev 
+npm install grunt-eslint --save-dev 
+npm install grunt-contrib-watch --save-dev 
+npm install grunt-contrib-sass --save-dev
