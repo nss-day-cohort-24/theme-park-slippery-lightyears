@@ -34,12 +34,19 @@ let currentDate = fullDate.getDate();
 let currentYear = fullDate.getFullYear();
 var dateToday = `${currentDay}, ${currentMonth} ${currentDate}, ${currentYear}`;
 console.log(currentHour);
+var dropdown911AM = document.getElementById("dropdown-911AM");
+var dropdown122 = document.getElementById("dropdown-122");
+var dropdown35 = document.getElementById("dropdown-35");
+var dropdown68 = document.getElementById("dropdown-68");
+var dropdown911PM = document.getElementById("dropdown-911PM");
 
 
 
 dateElement.innerHTML += dateToday;
 
 /// EVENT HANDLERS ACCORDING TO AREA CLICKED ON THE MAP ///
+
+
 document.getElementById("map-area-1").addEventListener("click", function(){
     mapSelector = 1;
     console.log(mapSelector);
@@ -79,56 +86,43 @@ function getMapSearchResultsOnLoad(){ // The initial On Load function
         fetchfunctions.getAllAttractions().then( 
         
             (resolve)=> {
-        bucket = resolve;
-        
-        let keys = Object.keys(bucket);
-        
-        // Clear input area. 
-        attractionItem.innerHTML = "";
+                bucket = resolve;
+                let keys = Object.keys(bucket);
+                console.log("The getAllAttractions() has passed a successful resolve.");
+                console.log(resolve);
+                // Clear input area. 
+                attractionItem.innerHTML = "";
 
-        // Go through the array and print the found items to the DOM.
-
-        keys.forEach(function(item){
-            let i = 0; // PH trying to put counter for collapse options
-            let input = (bucket[item].name).toLowerCase();
-            if(input.includes(userInput)){
+                // Go through the array and print the found items to the DOM.
+                keys.forEach(function(item){
+                    let i = 0; // PH trying to put counter for collapse options
+                    let input = (bucket[item].name).toLowerCase();   
+                    // DELETE ALL THESE NOTES BEFORE FINAL---
+                    //document.getElementById(`map-area-${bucket[item].area_id}`).style
+                    // tempstring += `<div class="attractions" onclick = "function()"><h5><a> ${bucket[item].name} </a> ${bucket[item].type_id} 
+                    // </h5> <p class="attraction-details">${bucket[item].description}</p></div>`;
+                // PH === Bootstrap code for accordion card;  <a data-toggle="collapse" data-parent="#accordion" href="#collapse1">
+                    tempstring += `<div class="card">
+                    <div class="card-header" id="headingOne">
+                        <h5 class="mb-0">
+                        <button class="btn btn-link" data-toggle="collapse" data-target="#${collapse[i]}" aria-expanded="true" aria-controls="#${collapse[i]}">
+                    ${bucket[item].name}(${bucket[item].type_id}) </button>
+                    </h5>
+                    </div>
                 
-                //document.getElementById(`map-area-${bucket[item].area_id}`).style
-            //     tempstring += `<div class="attractions" onclick = "function()"><h5><a> ${bucket[item].name} </a> ${bucket[item].type_id} 
-            // </h5> <p class="attraction-details">${bucket[item].description}</p></div>`;
+                    <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
+                    <div class="card-body">${bucket[item].description}</div>
+                    </div>
+                    </div>`;
 
-        // PH === Bootstrap code for accordion card;  <a data-toggle="collapse" data-parent="#accordion" href="#collapse1">
-            tempstring += `<div class="card">
-            <div class="card-header" id="headingOne">
-                <h5 class="mb-0">
-                <button class="btn btn-link" data-toggle="collapse" data-target="#${collapse[i]}" aria-expanded="true" aria-controls="#${collapse[i]}">
-            ${bucket[item].name}(${bucket[item].type_id}) </button>
-            </h5>
-            </div>
-        
-            <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
-            <div class="card-body">${bucket[item].description}</div>
-            </div>
-            </div>`;
-
-                
-                console.log("Found an item.");
-                console.log(bucket[item].name);
-
-                attractionItem.innerHTML += tempstring;
-            }
-            
-            else{
-                console.log("Nothing");
-            }
-            
+                    attractionItem.innerHTML += tempstring;   
         });
     },
 
         (reject)=>{
             console.log ("Big Reject.");
         }
-    )
+    );
 }
 
 function getMapSearchResults(){ // 
@@ -166,7 +160,7 @@ function getMapSearchResults(){ //
             (reject) => {
                 console.log("Reject from getMapSearchResults().");
                 }
-        )
+        );
     });
     
 }
@@ -227,12 +221,9 @@ function getTimeSearchResults(){
 }
 
 function sortTimeOfAttractions(collection, keys){
-    /*<== TESTS (Delete later) ==> */
+ 
     console.log("The function sortTimeofAttractions() is running");
-    // console.log("Type of collection is an...");
-    // console.log(typeof collection);
-    // console.log("Type of keys is an...");
-    // console.log(typeof keys);
+
     let localTime = [{}];
     let tempArr = [];
     let testArr = [];
@@ -241,87 +232,119 @@ function sortTimeOfAttractions(collection, keys){
     keys.forEach(function(item){
         if(collection[item].times !== undefined ){
             localTime.unshift(collection[item].times);
-            //console.log(tempArr); && (collection[item].times )
-
-        }
-    });
-
-    for(var i = 0; i< localTime.length; i++){
-        for(var j = 0; j < localTime[i].length; j++)
-        {
-            //console.log("Item of Times------------");
             
-            let strDate = localTime[i][j];
-            let arr = strDate.split(':');
-            let hour = arr[0];
-            let min = arr[1];
-            let ampm = arr[1];
-            console.log(hour + ":" + ampm);
-            console.log(typeof ampm);
-            if (ampm.includes("PM")){
-                console.log("This is a PM time.");
-            }
-            if (ampm.includes("AM")){
-                console.log("This is a AM time.");
-            }
-            
-            if (hour >= 9 && hour < 12 && ampm.includes("AM")){
-               //testArr.shift(localTime[i][j]);
-                console.log("Met the condition: Between 9 - 11:59 PM. Insert into Array");
-                console.log(localTime[i][j] + "-- INSERTED");
-            }
-
-            if (hour >= 12  && ampm.includes("PM")){ //&& hour < 3
-                console.log("Met the condition: Between 9 - 11:59 PM. Insert into Array");
-                console.log(localTime[i][j] + "-- INSERTED");
-            }
-
-            if (hour >= 2 && hour < 5 && ampm.includes("PM")){
-                console.log("Met the condition: Between 2 - 4:59 PM. Insert into Array");
-                console.log(localTime[i][j] + "-- INSERTED");
-            }
-
+            for(var i = 0; i< collection[item].times.length; i++){
+                for(var j = 0; j < collection[item].times[i].length; j++)
+                {
+                    // Here we parse the time by hour, minute and AMPM 
+                    
+                    let strDate = localTime[i][j];
+                    let arr = strDate.split(':');
+                    let hour = arr[0];
+                    let min = arr[1];
+                    let ampm = arr[1];
+                    console.log(hour + ":" + ampm);
+                    console.log(typeof ampm);
+                    if (ampm.includes("PM")){
+                        console.log("This is a PM time.");
+                    }
+                    if (ampm.includes("AM")){
+                        console.log("This is a AM time.");
+                    }
+                    
+                    if (hour >= 9 && hour < 12 && ampm.includes("AM")){
+                       //testArr.shift(localTime[i][j]);
+                        console.log("Met the condition: Between 9 - 11:59 PM. INSERTED TO THE DOM.");
+                        console.log(localTime[i][j] + "-- INSERTED");
+                        dropdown911AM.addEventListener("click", function(){
+                            attractionItem.innerHTML = "";
+                            tempstring += `<div class="card">
+                           <div class="card-header" id="headingOne" onclick = "function()"><h5 class="mb-0">
+                               <button class="btn btn-link" data-toggle="collapse" data-target="#collapseOne}" aria-expanded="true" aria-controls="##collapseOne"> ${collection[i].name} (${collection[i].type_id})</button></h5></div>
+                                        
+                             <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
+                               <div class="card-body">
+                                    ${collection[i].description}
+                                </div>
+                            </div>
+                            </div>`;
+                            attractionItem.innerHTML += tempstring;
         
-    }
-
-}     
-            
         
-        /*
-        if((collection[item].times !== undefined) && (collection[item].times))
-        {
-            itemsByTimeSearch.unshift(collection[item].times);
-            console.log("Found items that filter!");
-        }
+                        });
+        
+                    }
+        
+                    if (hour >= 12  && ampm.includes("PM")){ //&& hour < 3
+                        console.log("Met the condition: Between 9 - 11:59 PM. INSERTED TO THE DOM");
+                        console.log(localTime[i][j] + "-- INSERTED");
+                        dropdown122.addEventListener("click", function(){
+                            attractionItem.innerHTML = "";
+                            tempstring += `<div class="card">
+                           <div class="card-header" id="headingOne" onclick = "function()"><h5 class="mb-0">
+                               <button class="btn btn-link" data-toggle="collapse" data-target="#collapseOne}" aria-expanded="true" aria-controls="##collapseOne"> ${collection[i].name} (${collection[i].type_id})</button></h5></div>
+                                        
+                             <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
+                               <div class="card-body">
+                                    ${collection[i].description}
+                                </div>
+                            </div>
+                            </div>`;
+                            attractionItem.innerHTML += tempstring;
+        
+        
+                        });
+                    }
+        
+                    if (hour >= 2 && hour < 5 && ampm.includes("PM")){
+                        console.log("Met the condition: Between 2 - 4:59 PM. INSERTED TO THE DOM");
+                        console.log(localTime[i][j] + "-- INSERTED");
+                        dropdown35.addEventListener("click", function(){
+                            attractionItem.innerHTML = "";
+                            tempstring += `<div class="card">
+                           <div class="card-header" id="headingOne" onclick = "function()"><h5 class="mb-0">
+                               <button class="btn btn-link" data-toggle="collapse" data-target="#collapseOne}" aria-expanded="true" aria-controls="##collapseOne"> ${collection[i].name} (${collection[i].type_id})</button></h5></div>
+                                        
+                             <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
+                               <div class="card-body">
+                                    ${collection[i].description}
+                                </div>
+                            </div>
+                            </div>`;
+                            attractionItem.innerHTML += tempstring;
+        
+        
+                        });
+                    }
+        
+                    if (hour >= 6 && hour < 8 && ampm.includes("PM")){
+                        console.log("Met the condition: Between 6 - 8:59 PM. INSERTED TO THE DOM");
+                        console.log(localTime[i][j] + "-- INSERTED");
+                        dropdown68.addEventListener("click", function(){
+                            attractionItem.innerHTML = "";
+                            tempstring += `<div class="card">
+                           <div class="card-header" id="headingOne" onclick = "function()"><h5 class="mb-0">
+                               <button class="btn btn-link" data-toggle="collapse" data-target="#collapseOne}" aria-expanded="true" aria-controls="##collapseOne"> ${collection[i].name} (${collection[i].type_id})</button></h5></div>
+                                        
+                             <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
+                               <div class="card-body">
+                                    ${collection[i].description}
+                                </div>
+                            </div>
+                            </div>`;
+                            attractionItem.innerHTML += tempstring;
+                                });
+                            }      
+            
+                    } // END OF 2ND FOR LOOP
+                } // END OF 1ST FOR LOOP
+            } // END OF IF UNDEFINED STATEMENT
 
-        <== TESTS (Delete later) ==> */
-        //console.log("localTime is a type of...");
-        //console.log(typeof localTime);
-        //console.log(collection[item].times);
-    /*<== ^^TESTS (Delete later) ==> */
 
-        //switch (){
-
-
-
-        //console.log(itemsByTimeSearch);
-        //if (collection[item].times === ) maybe a switch??
-        // For each item in the keys...
-        /*collection[item].times.forEach(function(time){ // and for each item within the property time...
-            if(time.includes(selectedTime)) // NOTE this probably needs to be more specific.
-                bucketOfTimes.shift(item); // collect the applicable items with time slots
-        });*/
-   // });
-
-    /*-->
-
-    printTimeResults();
-
-
-    -->*/
-    //return bucketOfTimes;
+        } // ANON FUNCTION
     
-}
+    );// END OF FOREACH LOOP 
+}// END OF FUNCTION
 
 function printTimeResults(){
 
