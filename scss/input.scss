@@ -11,6 +11,7 @@ $color-area-8:#9fc2bb;
 $color-gray:#6e6f71;
 $color-white:#fdfcfc;
 
+/***** Main element styles  ********/
 html,
 body {
     margin: 0;
@@ -25,10 +26,40 @@ body {
     background:$color-area-5;
     background: radial-gradient(circle, $color-white, $color-white, $color-area-5);
 }
+ul,
+li {
+  padding: 0;
+  margin: .75em;
+  font-size: 12px;
+  line-height: 1em;
+}
+
+/***** Text element styles ********/
+.display-font {
+    font-family: $font-family-unique-display;
+}
+
+h1.special-motto {
+  font-size: 1.2em;
+  line-height: 1em;
+  color: $color-area-8;
+}
+// styling for results div created from attractions JS //
+h5.attractions {
+    font-size: .8em;
+    line-height: 1.3em;
+    font-family: $font-family-sans-serif;
+    font-weight: bolder;
+}
+
+p.attractions-details {
+    font-size: .7em;
+    line-height: 1.3em;
+}
+/***** Navbar fixed top area  ********/
 
 .navbar {
-    padding-left: 3em;
-    padding-right: 3em;
+    padding: 1em 3em 1em 3em ;
 }
 
 .navbar-brand {
@@ -36,86 +67,149 @@ body {
     font-size: 48px;
 }
 
+.dropdown {
+    z-index: 1000;
+}
+/***** Main content area  ********/
+
 .C-main-wrapper{
-      padding: 1em 2em;
-      height: auto;
+    max-width:100%;
+    margin: 6em 3em;
+    // padding: 5em 1em 1em 1em;
+    height: 70%;
 }
 
+/***** Left output area ********/
+
 section.left-output-area {
-    margin: 2em 1em 2em 3em;
-    padding: 2em 2em;
+    margin: 1em 1em 0em 0em;
+    padding: 2em;
     background-color: $color-white;
     border: 1px solid $color-area-2;
     border-radius: 1em;
-    // display: block;
     width: 30%;
-    height: 75%;
+    height: 70%;
     position: fixed;
     z-index: 1;
     float: right;
-    // overflow-x: hidden;
+    overflow-x: hidden;
 }
 
-.display-realtime {
-    object-fit: contain;
-}
+/*** styling for events dropdown menu on time of events *****/
+// #display-search-result, .list-group {
+//     font-size: 12px;
+//     padding: 10px;
+//     text-align: center;
+//     border: solid 1px $color-white;
+//     margin: auto;
+// }
+
+// #display-search-result {
+//     display: none;
+// }
+
+/*** styling for output content *****/
+// .list-group {
+
+// }
+
+/***** RIght map area ********/
 
 section.park-map-area {
-    // margin: 2em 3em 2em 6em;
-    padding: 2em 2em 1em 2em;
+    margin-top: 1em;
+    // margin-left:4em;
+    // margin-right: 2em;
+    // padding-left: 2em;
     position: fixed;
-    right: 0;
-    min-width: 40%;
-    overflow-x: hidden;
-    position: fixed;
+    right: 1em;
     width: 60%;
-    height: 75%;
-    z-index: 0;
-    display: inline-flex;
-   
+    height:60%;
+    top: 100px;
 }
 
-#park-map {
-    background-image: no-repeat fixed center;
-    background-size: 300px 100px;
+img {
+    align-content: center;
+    width: 60%;
+    height: auto;
+    background-image:no-repeat;
+    background-image:fixed;
+    background-image:center;
     object-fit: contain;
+    position: fixed;
+    left: 0x;
+    top: 100px;
+    z-index: -1;
+    padding-top: 1em;
+    // padding-left: 2em;
+    padding-right: 2em;
+}
+
+.container {
+    width: 100%;
+    padding-right: 3em;
+    height: 540px;
 }
 
 div.col {
-    width:200px;
-    height:180px; 
+    width: 50% !important;
+    height: 145px !important;
     text-align: center;
-    z-index: 100;
-    position: absolute;
+    margin: auto;
+    align-items: center;
+    position: relative;
+    padding: 4.2em;
+    object-fit: contain;
+    z-index: 100 !important;
 }
 
-div.col-sm-9{
-    max-height: 1em;
+#map-area-1 {
+    background-color: $color-area-1;
+    opacity: 0.5;
+}
+#map-area-2 {
+    background-color: $color-area-2;
+    opacity: 0.5;
+}
+#map-area-3 {
+    background-color: $color-area-3;
+    opacity: 0.5;
+}
+#map-area-4 {
+    background-color: $color-area-4;
+    opacity: 0.5;
+}
+#map-area-5 {
+    background-color: $color-area-5;
+    opacity: 0.5;
+}
+#map-area-6 {
+    background-color: $color-area-6;
+    opacity: 0.5;
+}
+#map-area-7 {
+   background-color: $color-area-7;
+   opacity: 0.5;
+}
+#map-area-8 {
+    background-color: $color-area-8 ;
+    opacity: 0.5;
 }
 
-.display-font {
-      font-family: $font-family-unique-display;
-}
-
-ul,
-li {
-    padding: 0;
-    margin: .75em;
-    font-size: 12px;
-    line-height: 1em;
-}
-
-footer p {
-    text-align: right;
+/***** I live here in the footer bottom area *****/
+footer {
+    text-align: center;
     font-size: .5em;
     line-height: .5em;
 }
 
-p span {
-    font-weight: bolder;
+.fixed-bottom {
+    padding-bottom: 2em !important;
+}
+p.uppercase {
+    font-weight:bolder;
 }
 
 footer p.display-font {
-    font-size: 1.25em;
+    font-size: 1em;
 }
 
