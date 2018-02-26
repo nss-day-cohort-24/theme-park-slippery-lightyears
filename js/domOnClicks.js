@@ -2,7 +2,7 @@
 
 let fetchfunctions = require("./fetch");
 let tempstring = "";
-let num = 1;
+
 let attractionItem = document.getElementById("accordion");
 let selectedTime = "";
 let mapSelector;
@@ -13,6 +13,10 @@ let timeSlot = {}; // Needs to be connected to the dom by an eventListener to as
 let dateElement = document.getElementById("footer-date");
 console.log(dateToday);
 let collapse = [];
+let timeByEachTime;
+let arr;
+let hour;
+let ampm;
 
 
 
@@ -86,35 +90,61 @@ function getMapSearchResultsOnLoad(){ // The initial On Load function
         fetchfunctions.getAllAttractions().then( 
         
             (resolve)=> {
+
                 bucket = resolve;
                 let keys = Object.keys(bucket);
                 console.log("The getAllAttractions() has passed a successful resolve.");
-                console.log(resolve);
+                
                 // Clear input area. 
                 attractionItem.innerHTML = "";
 
                 // Go through the array and print the found items to the DOM.
                 keys.forEach(function(item){
-                    let i = 0; // PH trying to put counter for collapse options
-                    let input = (bucket[item].name).toLowerCase();   
-                    // DELETE ALL THESE NOTES BEFORE FINAL---
-                    //document.getElementById(`map-area-${bucket[item].area_id}`).style
-                    // tempstring += `<div class="attractions" onclick = "function()"><h5><a> ${bucket[item].name} </a> ${bucket[item].type_id} 
-                    // </h5> <p class="attraction-details">${bucket[item].description}</p></div>`;
-                // PH === Bootstrap code for accordion card;  <a data-toggle="collapse" data-parent="#accordion" href="#collapse1">
-                    tempstring += `<div class="card">
-                    <div class="card-header" id="headingOne">
-                        <h5 class="mb-0">
-                        <button class="btn btn-link" data-toggle="collapse" data-target="#${collapse[i]}" aria-expanded="true" aria-controls="#${collapse[i]}">
-                    ${bucket[item].name}(${bucket[item].type_id}) </button>
-                    </h5>
-                    </div>
-                
-                    <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
-                    <div class="card-body">${bucket[item].description}</div>
-                    </div>
-                    </div>`;
+                    
+                    
+                    for (var i = 0; i < bucket[item].length; i++)
+                        for (var j = 0; j < bucket[item].time[i].length; j++){
+                            
+                            // SERIES OF TESTS //
+                            console.log(typeof bucket[item]);
+                            console.log(bucket[item]);
+                            timeByEachTime = bucket[item].times[i][j];
+                            console.log("This is the times array:");
+                            console.log(bucket[item].times);
+                            console.log("This is a specific fucking time:");
+                            console.log(bucket[item].times[i] + "        " + bucket[item].times[i][j]);
 
+
+
+                            arr = timeByEachTime.split(':');
+                            hour = arr[0];
+                            ampm = arr[1]; 
+
+                            if ((currentHour === hour)){
+                                
+                                tempstring += `<div class="card">
+                                <div class="card-header" id="headingOne">
+                                    <h5 class="mb-0">
+                                    <button class="btn btn-link" data-toggle="collapse" data-target="#${collapse[i]}" aria-expanded="true" aria-controls="#${collapse[i]}">
+                                ${bucket[item].name}(${bucket[item].type_id}) </button>
+                                </h5>
+                                </div>
+                            
+                                <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
+                                <div class="card-body">${bucket[item].description}</div>
+                                </div>
+                                </div>`;
+
+                            }
+                        }
+                        
+                       // PH trying to put counter for collapse options
+                        let input = (bucket[item].name).toLowerCase();   
+                        // DELETE ALL THESE NOTES BEFORE FINAL---
+                        //document.getElementById(`map-area-${bucket[item].area_id}`).style
+                        // tempstring += `<div class="attractions" onclick = "function()"><h5><a> ${bucket[item].name} </a> ${bucket[item].type_id} 
+                        // </h5> <p class="attraction-details">${bucket[item].description}</p></div>`;
+                    // PH === Bootstrap code for accordion card;  <a data-toggle="collapse" data-parent="#accordion" href="#collapse1">
                     attractionItem.innerHTML += tempstring;   
         });
     },
@@ -205,7 +235,7 @@ function getTimeSearchResults(){
     document.getElementById("dropdownMenuButton").addEventListener("click", function(){ // When the value is selected from the drop down menu,
         // upon the click of the selected time, we want the results to be filtered by appropriate times.
         console.log("The function getTimeSearchResults() is running.");
-        fetchfunctions.getAllAreasAttractions(num).then(
+        fetchfunctions.getAllAreasAttractions(mapSelector).then(
             (resolve)=>{
                 console.log("The getAllAreasAttractions() passed a successful resolve within the getTimeSearchResults().");
                 attractionItem.innerHTML = "";
@@ -233,16 +263,21 @@ function sortTimeOfAttractions(collection, keys){
         if(collection[item].times !== undefined ){
             localTime.unshift(collection[item].times);
             
-            for(var i = 0; i< collection[item].times.length; i++){
+            for(var i = 0; i< collection[item].length; i++){
                 for(var j = 0; j < collection[item].times[i].length; j++)
                 {
                     // Here we parse the time by hour, minute and AMPM 
                     
-                    let strDate = localTime[i][j];
-                    let arr = strDate.split(':');
-                    let hour = arr[0];
-                    let min = arr[1];
-                    let ampm = arr[1];
+                    timeByEachTime = collection[item].times[i][j];
+                    console.log("This is the times array:");
+                    console.log(collection[item].times);
+                    console.log("This is a specific fucking time:");
+                    console.log(collection[item].times[i] + "        " + collection[item].times[i][j]);
+                    arr = timeByEachTime.split(':');
+                    hour = arr[0];
+                    ampm = arr[1]; 
+
+                    
                     console.log(hour + ":" + ampm);
                     console.log(typeof ampm);
                     if (ampm.includes("PM")){
