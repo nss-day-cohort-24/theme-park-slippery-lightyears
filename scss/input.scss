@@ -117,28 +117,30 @@ section.left-output-area {
 
 // styling for results div created from attractions JS //
 
+div.card-header {
+word-wrap: break-word;
+}
 
-
-
-#list-group h5{
+#accordion h5{
     font-size: 1.2em;
     line-height: 1.3em;
     font-family: $font-family-sans-serif;
     font-weight: bolder;
 }
 
-#list-group p {
+#accordion p {
     font-size: 1em;
     line-height: 1.3em;
 }
 /*** styling for events dropdown menu on time of events *****/
-#list-group {
+#accordion {
     font-size: 12px;
     line-height: 14px;
     border: solid 1px $color-white;
 }
 
 /*** styling for output content *****/
+
 
 /***** RIght map area ********/
 
@@ -216,6 +218,12 @@ a:hover.col + div {
 #map-area-2 {
     background: rgba(154, 170, 186, .3);
 }
+#map-area-2 a:hover,
+#map-area-2 a:active {
+    background: rgba(242, 115, 96, 0.9);
+    outline-style: solid;
+    outline-color: $color-white;
+} 
 
 #map-area-3 {
     background-color: rgba(243, 199, 102, .3);
