@@ -21,15 +21,15 @@ function getAllAreasAttractions(areaNum){ // This returns all the areas by id fo
 });
 }
 
-function getAllAttractionTypes(AttractionTypeNum){ // This returns all attractions by areanum
+function getAllAttractions(){ // This returns all attractions by areanum
 
 
 
     return new Promise((resolve, reject) =>{
         
-        this.parkObjectsLoader = new XMLHttpRequest(); 
+        let parkObjectsLoader = new XMLHttpRequest(); 
         
-        parkObjectsLoader.open("GET", `https://slippery-lightyears.firebaseio.com/attractions.json?orderBy="area_id"&equalTo=${AttractionTypeNum}`);
+        parkObjectsLoader.open("GET", `https://slippery-lightyears.firebaseio.com/attractions.json`);
         parkObjectsLoader.send();
         
         parkObjectsLoader.addEventListener("load", function() {
@@ -44,7 +44,7 @@ function getAllAttractionTypes(AttractionTypeNum){ // This returns all attractio
 }
 
 //THIS WORKS
-function getAllAttractions(){ 
+/*function getAllAttractions(){ 
 
     return new Promise((resolve, reject) =>{
         
@@ -61,6 +61,6 @@ function getAllAttractions(){
         });
 
     });
-}
+}*/
 //getAllAreas, getAllAreasAttractions, getAllAttractionTypes,
 module.exports = {getAllAttractions, getAllAreasAttractions}; 
