@@ -67,13 +67,13 @@ function getSearchBarResults(resolve, bucket, userInput){
                 // PH === Bootstrap code for accordion card;  <a data-toggle="collapse" data-parent="#accordion" href="#collapse1">
                    tempstring += `<div class="card">
                    <div class="card-header" id="headingOne">
-                     <h5 class="mb-0">
-                       <button class="btn btn-link" data-toggle="collapse" data-target="#${collapse[i]}" aria-expanded="true" aria-controls="#${collapse[i]}">
-                   ${bucket[item].name}(${bucket[item].type_id}) </button>
-                   </h5>
-                 </div>
+                        <h5 class="mb-0">
+                       <button class="btn btn-link" data-toggle="collapse" data-target="#${bucket[item].id}" aria-expanded="true" aria-controls="${bucket[item].id}">
+                            ${bucket[item].name}(${bucket[item].type_id}) </button>
+                        </h5>
+                    </div>
              
-                 <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
+                 <div id="${bucket[item].id}" class="collapse show" aria-labelledby="${bucket[item].id}" data-parent="#accordion">
                    <div class="card-body">${bucket[item].description}</div>
                    </div>
                  </div>`;
@@ -112,9 +112,9 @@ function getMapSearchResults(){ //
 
                    tempstring += `<div class="card">
                    <div class="card-header" id="headingOne" onclick = "function()"><h5 class="mb-0">
-                       <button class="btn btn-link" data-toggle="collapse" data-target="#collapseOne}" aria-expanded="true" aria-controls="##collapseOne"> ${bucket[item].name} (${bucket[item].type_id})</button></h5></div>
+                       <button class="btn btn-link" data-toggle="collapse" data-target="#${bucket[item].id}" aria-expanded="true" aria-controls="${bucket[item].id}"> ${bucket[item].name} (${bucket[item].type_id})</button></h5></div>
                                 
-                     <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
+                     <div id="${bucket[item].id}" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
                        <div class="card-body">
                             ${bucket[item].description}
                         </div>
